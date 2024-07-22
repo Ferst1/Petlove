@@ -1,0 +1,32 @@
+$bodycolor: #faf8f8;
+$orange:#F6B83D;
+$black: #262626;
+$white: #ffffff;
+$yellow: #FBE7C1;
+$yellowlight: #FFF4DF;
+$red: #EF2447;
+$green:#08AA83;
+$bordercolor:#262626;
+$border:1px solid rgba(38, 38, 38, 0.15);
+$backdrop: rgba(38, 38, 38, 0.3);
+
+@mixin shadow {
+    box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.2);
+  }
+
+
+  $transitionDuration: 300ms;
+$transitionTimingFunction: cubic-bezier(0.4, 0, 0.2, 1);
+  :export {
+    $orange:$orange;
+    $black: $black;
+    $white: $white;
+    $yellow: $yellow;
+    $yellowlight: $yellowlight;
+    $red: $red;
+    $green:$green;
+    $bordercolor:$bordercolor;
+    $border:$border;
+    $transitionDuration: $transitionDuration;
+    $transitionTimingFunction: $transitionTimingFunction;
+  }

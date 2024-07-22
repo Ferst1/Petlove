@@ -1,0 +1,42 @@
+
+
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    padding-bottom: 80px;
+    z-index: 100px;
+  }
+  
+  .arrow {
+    margin: 0 10px;
+    cursor: pointer;
+    color: $black; 
+  }
+  
+  .arrow.disabled {
+    color: #ccc; 
+  }
+  span{
+    color: $black;
+  }
+  .page {
+    margin: 0 5px;
+    cursor: pointer;
+    color:$black; 
+    border: 1px solid #ccc;
+    border-radius: 50%; 
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page.active {
+    background-color:$orange;
+    color: $white; 
+  }

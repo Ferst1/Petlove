@@ -1,0 +1,75 @@
+
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.find_pets_card_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+}
+
+.find_pets_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+ 
+    
+}
+
+
+.favorite_button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.pets_item {
+    width: calc(33.333% - 32px); 
+    margin-bottom: 32px;
+    padding: 24px;
+    border-radius: 60px;
+    background-color:$white;
+    border-radius: 60px;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pets_item>img {
+    width: 100%;
+    max-width: 315px;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 16px;
+    
+    
+}
+
+
+@media (max-width: 768px) {
+    .pets_item {
+        width: calc(50% - 32px); 
+    }
+}
+
+@media (max-width: 425px) {
+    .pets_item {
+        width: calc(100% - 24px);
+    }
+}
+
+
+   
+
+.favorite_button{
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+  
+    
+
+}

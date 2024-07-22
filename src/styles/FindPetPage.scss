@@ -1,0 +1,23 @@
+
+
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.pets_section {
+  margin: 340px 32px 100px 32px;
+}
+
+
+.find_pets_container, .pets_section {
+  height: 100%;
+  overflow-y: auto;
+}
+
+h2{
+  font-family: var(--font-family);
+font-weight: 700;
+font-size: 54px;
+line-height: 100%;
+letter-spacing: -0.03em;
+color: #262626;
+}

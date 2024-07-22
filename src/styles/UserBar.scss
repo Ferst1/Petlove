@@ -1,0 +1,35 @@
+.user-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .logout {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout:hover {
+    background-color: #ff1a1a;
+  }
+  
+  .user_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }

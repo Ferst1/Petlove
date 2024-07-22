@@ -1,0 +1,75 @@
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    opacity: 0; 
+    visibility: hidden;
+    z-index: 9;
+    transform: translateX(50%); 
+  
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; 
+  
+    padding: 20px;
+    padding-top: 92px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 16px;
+  }
+  .x-menu {
+    color: $black;
+    z-index: 10;
+  }
+  .mobile-menu>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f6b83d;
+    border-radius: 30px;
+    padding: 15px 39px; 
+    color: $black;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 10;
+  }
+  
+  .mobile-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color:$white; 
+    
+    z-index: 8; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease; 
+  }
+  
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  
+ 
+  .mobile-menu.open::before {
+    opacity: 1;
+  }
+
+  .x-menu {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+  }
+  

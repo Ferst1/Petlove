@@ -1,0 +1,29 @@
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+
+
+.search_field {
+    position: absolute;
+    top: 130px; 
+    right: 20px; 
+    @include lg{
+        top: 180px;
+    }
+}
+
+.news_page {
+    position: relative; 
+    width: 100%;
+    height: 100vh; 
+  
+    // @include lg {
+    //     padding: 20px 64px;
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+    // @include mm {
+    //     grid-template-columns: repeat(1, 1fr);
+    // }
+ 
+
+}
