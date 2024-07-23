@@ -1,23 +1,64 @@
-import React, { useState } from 'react';
-import ReactSelect from 'react-select';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import InputSearch from '../InputSearch/InputSearch';
+import '../../../styles/InputSearch.scss';
 
-const LocationInput = ({ onChange, locations }) => {
-  const [selectedLocation, setSelectedLocation] = useState(null);
+const LocationInput = ({ onChange }) => {
+  const [locations, setLocations] = useState([]);
+  const [filteredLocations, setFilteredLocations] = useState([]);
 
-  const handleChange = (selectedOption) => {
-    setSelectedLocation(selectedOption);
-    onChange(selectedOption ? selectedOption.value : '');
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const response = await axios.get('/api/locations'); // Замените на правильный эндпоинт
+        const locationOptions = response.data.map(location => ({
+          value: `${location.stateEn} ${location.cityEn} ${location.countyEn}`,
+          label: `${location.stateEn}, ${location.cityEn} (${location.countyEn})`
+        }));
+        setLocations(locationOptions);
+        setFilteredLocations(locationOptions);
+      } catch (error) {
+        console.error('Error fetching locations:', error);
+      }
+    };
+    fetchLocations();
+  }, []);
+
+  const handleSearch = (query) => {
+    const filtered = locations.filter(location =>
+      location.label.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredLocations(filtered);
+    onChange(query);
+  };
+
+  const handleClear = () => {
+    setFilteredLocations(locations);
+    onChange('');
+  };
+
+  const handleLocationClick = (location) => {
+    setFilteredLocations([]);
+    onChange(location.value);
   };
 
   return (
-    <ReactSelect 
-      value={selectedLocation}
-      onChange={handleChange}
-      options={locations ? locations.map(location => ({ value: location, label: location })) : []}
-      isSearchable
-      placeholder="By location"
-      isClearable
-    />
+    <div>
+      <InputSearch onSearch={handleSearch} onClear={handleClear} />
+      {filteredLocations.length > 0 && (
+        <ul className="dropdown-menu">
+          {filteredLocations.map((location, index) => (
+            <li 
+              key={index} 
+              onClick={() => handleLocationClick(location)}
+              className="dropdown-item"
+            >
+              {location.label}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

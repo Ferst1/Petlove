@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
 
-const GenderSelect = ({ onChange, genders }) => {
+const genders = [
+  "female",
+  "male",
+  "multiple",
+  "unknown"
+];
+
+const GenderSelect = ({ onChange }) => {
   const [selectedGender, setSelectedGender] = useState(null);
 
   const handleChange = (selectedOption) => {
@@ -13,7 +20,7 @@ const GenderSelect = ({ onChange, genders }) => {
     <ReactSelect 
       value={selectedGender}
       onChange={handleChange}
-      options={genders ? genders.map(gender => ({ value: gender, label: gender })) : []}
+      options={genders.map(gender => ({ value: gender, label: gender }))}
       isSearchable
       placeholder="By gender"
       isClearable

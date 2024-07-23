@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Асинхронное действие для получения данных по локациям
+
 export const fetchLocations = createAsyncThunk(
   'location/fetchLocations',
   async (_, { rejectWithValue }) => {

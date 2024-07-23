@@ -2,8 +2,11 @@
 
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
+
+
 .search_wrapper{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border-radius: 30px;
@@ -12,11 +15,23 @@
     height: 216px;  
     position: relative;
     background-color: $yellowlight;
- 
-   
    
 }
 
+.radio_button{
+    display: flex;
+    gap: 8px;
+    
+}
+.radio_button button{
+    background-color:$white;
+    color: $black;
+    cursor: pointer;
+    font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+letter-spacing: -0.03em
+}
 .search_field_form{
     display: flex;
   gap: 20px;

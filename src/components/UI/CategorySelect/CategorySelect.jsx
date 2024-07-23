@@ -1,10 +1,16 @@
 
 
-
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
 
-const CategorySelect = ({ onChange, categories }) => {
+const categories = [
+  "found",
+  "free",
+  "lost",
+  "sell"
+];
+
+const CategorySelect = ({ onChange }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleChange = (selectedOption) => {
@@ -16,7 +22,7 @@ const CategorySelect = ({ onChange, categories }) => {
     <ReactSelect 
       value={selectedCategory}
       onChange={handleChange}
-      options={categories ? categories.map(category => ({ value: category, label: category })) : []}
+      options={categories.map(category => ({ value: category, label: category }))}
       isSearchable
       placeholder="Category"
       isClearable
