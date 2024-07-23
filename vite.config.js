@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: command === 'serve' ? '/' : '/Petlove/',  // Условие для установки базового пути
+  base: command === 'serve' ? '/' : '/Petlove/',  
 }))
