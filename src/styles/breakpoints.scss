@@ -45,6 +45,19 @@ $breakpoints: (
 };
 
 
+.container {
+    padding: 32px;
+  
+    @include sm {
+      padding: 0 20px; 
+    }
+  
+    @include xl {
+      padding: 32px; 
+    }
+  }
+
+
 
 
 @mixin retina {

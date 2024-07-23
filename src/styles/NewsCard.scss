@@ -2,7 +2,7 @@
 @import "../styles/breakpoints.scss";
 
 .news_card{
-    padding: 60px 64px;
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 35px;
@@ -25,6 +25,8 @@
     width: 100%;   
     max-width:361px;
     max-height: 226px;
+    border-radius: 15px;
+
 }
 
 

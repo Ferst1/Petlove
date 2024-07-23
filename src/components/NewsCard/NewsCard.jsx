@@ -1,36 +1,13 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../../styles/NewsCard.scss';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../services/data';
 
-const NewsCard = () => {
-  const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch('https://petlove.b.goit.study/api/news');
-        if (!response.ok) {
-          throw new Error('Failed to fetch news');
-        }
-        const data = await response.json();
-        setNews(data.results);
-      } catch (error) {
-        console.error('Error fetching news:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchNews();
-  }, []);
-
+const NewsCard = ({ news, loading }) => {
   return (
     <div className='news_card'>
       {loading ? (
-        // Показать существующие карточки без информации, пока данные загружаются
         Array(4).fill(0).map((_, index) => (
           <div 
             data-aos="fade-up"
@@ -46,7 +23,6 @@ const NewsCard = () => {
           </div>
         ))
       ) : (
-        // Показать загруженные данные
         news.map((item) => (
           <div 
             data-aos="fade-up"

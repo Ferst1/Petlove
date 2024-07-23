@@ -24,26 +24,34 @@ const FindPetPage = () => {
   };
 
   return (
-    <div>
-      <h2>Find your favorite pet</h2>
-      <div className='find_pets_container'>
-        <section className='find_pets'>
+<div className='container'>
+   
+    <section className='find_yor_pets'>
+      
+    <h2>Find your favorite pet</h2>
+      
+        <div className='find_pets_container'>
           <SearchField categories={categories} genders={genders} types={types} locations={locations} />
-          <section className='pets_section'>
+        </div>
+          
+          
+          <div className='pets_section'>
             <FindPetsCard 
               filters={filters} 
               searchValue={searchValue} 
               currentPage={currentPage}
               setTotalItems={setTotalItems} 
             />
-          </section>
-        </section>
-      </div>
+          </div>
+          
+       
+      
       <Pagination
         totalItems={totalItems}
         itemsPerPage={6}
         onPageChange={handlePageChange}
       />
+    </section>
     </div>
   );
 };

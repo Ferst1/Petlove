@@ -3,14 +3,20 @@
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
-.pets_section {
-  margin: 340px 32px 100px 32px;
+
+.find_yor_pets{
+  
 }
 
 
+
+.find_pets_container{
+  margin: 40px 0px 40px 0px;
+}
 .find_pets_container, .pets_section {
   height: 100%;
   overflow-y: auto;
+  
 }
 
 h2{

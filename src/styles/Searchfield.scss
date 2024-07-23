@@ -2,7 +2,7 @@
 
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
-.search_field{
+.search_wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,6 +12,7 @@
     height: 216px;  
     position: relative;
     background-color: $yellowlight;
+ 
    
    
 }

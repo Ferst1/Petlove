@@ -3,19 +3,11 @@
 
 
 
-.search_field {
-    position: absolute;
-    top: 130px; 
-    right: 20px; 
-    @include lg{
-        top: 180px;
-    }
-}
-
 .news_page {
     position: relative; 
     width: 100%;
     height: 100vh; 
+    margin-top: 60px;
   
     // @include lg {
     //     padding: 20px 64px;
@@ -26,4 +18,16 @@
     // }
  
 
+}
+
+.news_search_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+   
+ 
+   
+   
 }
