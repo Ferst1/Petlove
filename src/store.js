@@ -11,6 +11,7 @@ import favoritePetsReducer from './redux/slices/favoritePetsSlice';
 import dataReducer from './redux/slices/dataSlice';
 import filtersReducer from './redux/slices/filtersSlice';
 import viewedPetsReducer from './redux/slices/viewedPetsSlice';
+import searchReducer from './redux/slices/searchSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   data: dataReducer,
   filters: filtersReducer,
   viewedPets: viewedPetsReducer,
+  search: searchReducer,
 });
 
 const persistConfig = {

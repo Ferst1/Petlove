@@ -28,7 +28,7 @@ const NewsPage = () => {
       const data = await response.json();
       setNews(data.results);
       setFilteredNews(data.results);
-      setTotalItems(data.total); // Общее количество элементов на сервере
+      setTotalItems(data.total); 
     } catch (error) {
       console.error('Error fetching news:', error);
     } finally {
