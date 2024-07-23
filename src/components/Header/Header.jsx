@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import '../../styles/Header.scss';
-import Logo from "../../assets/images/logohome.svg";
-import LogoToo from "../../assets/images/logo.svg";
-import BurgerMenuImg from '../../assets/images/burger_menu.svg';
+import Logo from "/images/logohome.svg";
+import LogoToo from "/images/logo.svg";
+import BurgerMenuImg from '/images/burger_menu.svg';
 import { AuthNav } from '../AuthNav/AuthNav';
 import MobileMenu from '../MobileMenu/MobileMenu';
 

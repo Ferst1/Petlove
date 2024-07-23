@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoritePet, removeFavoritePet } from '../../redux/slices/favoritePetsSlice'; 
 import Button from "../UI/Button/Button";
-import Favorit from "../../assets/images/favorite.svg";
-import FavoritHover from "../../assets/images/user-profile/heard-hover.png";
-import Crash from "../../assets/images/user-profile/crash.png";
+import Favorit from "/images/favorite.svg";
+import FavoritHover from "/images/user-profile/heard-hover.png";
+import Crash from "/images/user-profile/crash.png";
 import "../../styles/PetCard.scss";
 import formatDate from "../../utils/formatData";
 

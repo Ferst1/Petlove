@@ -1,7 +1,7 @@
 
 import { NavLink } from 'react-router-dom';
 import '../../styles/MobileMenu.scss';
-import X from '../../assets/images/x.svg';
+import X from '/images/x.svg';
 
 const MobileMenu = ({ isMenuOpen, handleToggleMenu }) => {
   return (

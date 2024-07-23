@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import ImgDog from "../../assets/images/dog-register.jpg";
+import ImgDog from "/images/dog-register.jpg";
 import "../../styles/LoginPage.scss";
 
 const LoginPage = () => {

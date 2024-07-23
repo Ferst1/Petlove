@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import { updateUser } from '../../redux/slices/userSlice';
 import '../../styles/UserCard.scss';
-import UserLogo from "../../assets/images/user-profile/user-profile.png";
-import UserUpload from "../../assets/images/user-profile/user-upload.png";
-import UserEdit from "../../assets/images/user-profile/edit.png";
+import UserLogo from "/images/user-profile/user-profile.png";
+import UserUpload from "/images/user-profile/user-upload.png";
+import UserEdit from "/images/user-profile/edit.png";
 import Button from '../UI/Button/Button';
 
 const UserCard = () => {

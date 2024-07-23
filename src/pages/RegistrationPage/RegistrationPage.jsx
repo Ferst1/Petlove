@@ -1,6 +1,6 @@
 import React from "react";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
-import img from "../../assets/images/cat-homepage.jpg";
+import img from "/images/cat-homepage.jpg";
 import "../../styles/RegistrationPage.scss";
 
 const RegistrationPage = () => {
