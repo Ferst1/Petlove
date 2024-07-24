@@ -7,42 +7,14 @@ import SearchField from '../../components/SearchField/SearchField';
 import Pagination from '../../components/Pagination/Pagination';
 import { fetchAllPetsByQuery, setQuery, setPage } from '../../redux/slices/searchSlice';
 import { setCategoryFilter, setGenderFilter, setTypeFilter, setLocationFilter } from '../../redux/slices/filtersSlice';
-
-const categories = [
-  "found",
-  "free",
-  "lost",
-  "sell"
-];
-
-const genders = [
-  "female",
-  "male",
-  "multiple",
-  "unknown"
-];
-
-const species = [
-  "dog",
-  "cat",
-  "monkey",
-  "bird",
-  "snake",
-  "turtle",
-  "lizard",
-  "frog",
-  "fish",
-  "ants",
-  "bees",
-  "butterfly",
-  "spider",
-  "scorpion"
-];
+import { filterAndSortPets } from '../../utils/filterAndSortPets';
+import { categories, genders, species } from '../../utils/constants';
 
 const FindPetPage = () => {
   const { locations } = useSelector(state => state.data);
   const { pets, totalItems, loading, query, currentPage } = useSelector(state => state.search);
   const { category, gender, type, location } = useSelector(state => state.filters);
+  const { sortBy } = useSelector(state => state.sort);
   const dispatch = useDispatch();
   const itemsPerPage = 6;
 
@@ -78,39 +50,7 @@ const FindPetPage = () => {
     dispatch(setLocationFilter(location));
   };
 
-  const filterPets = (pets, query, category, gender, type, location) => {
-    let filteredPets = pets;
-    const lowerCaseQuery = query.toLowerCase();
-    if (query) {
-      filteredPets = filteredPets.filter(pet => {
-        const { species, title, name, comment, sex, location: petLocation } = pet;
-        const locationString = `${petLocation?.stateEn || ''} ${petLocation?.cityEn || ''}`.toLowerCase();
-        return (
-          (species && species.toLowerCase().includes(lowerCaseQuery)) ||
-          (title && title.toLowerCase().includes(lowerCaseQuery)) ||
-          (name && name.toLowerCase().includes(lowerCaseQuery)) ||
-          (comment && comment.toLowerCase().includes(lowerCaseQuery)) ||
-          (sex && sex.toLowerCase().includes(lowerCaseQuery)) ||
-          locationString.includes(lowerCaseQuery)
-        );
-      });
-    }
-    if (category) {
-      filteredPets = filteredPets.filter(pet => pet.category === category);
-    }
-    if (gender) {
-      filteredPets = filteredPets.filter(pet => pet.sex === gender);
-    }
-    if (type) {
-      filteredPets = filteredPets.filter(pet => pet.species === type);
-    }
-    if (location) {
-      filteredPets = filteredPets.filter(pet => `${pet.location.stateEn} ${pet.location.cityEn}`.toLowerCase().includes(location.toLowerCase()));
-    }
-    return filteredPets;
-  };
-
-  const filteredPets = filterPets(pets, query, category, gender, type, location);
+  const filteredPets = filterAndSortPets(pets, query, category, gender, type, location, sortBy);
   const currentPets = filteredPets.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (

@@ -1,4 +1,4 @@
-// store.js
+
 import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -12,6 +12,7 @@ import dataReducer from './redux/slices/dataSlice';
 import filtersReducer from './redux/slices/filtersSlice';
 import viewedPetsReducer from './redux/slices/viewedPetsSlice';
 import searchReducer from './redux/slices/searchSlice';
+import sortReducer from './redux/slices/sortSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   filters: filtersReducer,
   viewedPets: viewedPetsReducer,
   search: searchReducer,
+  sort: sortReducer,
 });
 
 const persistConfig = {

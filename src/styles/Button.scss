@@ -1,7 +1,6 @@
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
-
 .button_elem {
     display: flex;
     justify-content: center;
@@ -9,28 +8,37 @@
     padding: 14px 24px;
     margin: 8px 0px;
     border-radius: 50px;
-    color: $white;
-    background-color:$orange;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
-
     cursor: pointer;
-}
-
-.yellow{
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button_elem.active {
+    background: #f6b83d;
+    color: white;
+  }
+  
+  .primary {
+    background-color: #f6b83d;
+    color: white;
+  }
+  
+  .yellow {
     background-color: #FFE44D;
     border: none;
     border-radius: 30px;
     padding: 20px;
-    :hover{
-        background-color: #fff;
-
-    }
-}
-
-.white {
+  }
+  
+  .yellow:hover {
+    background-color: #fff;
+  }
+  
+  .white {
     background-color: white;
-    border: 0.5 solid #CFD8DC;
-}
+    border: 0.5px solid #CFD8DC;
+  }
+  

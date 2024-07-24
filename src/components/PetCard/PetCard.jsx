@@ -65,7 +65,7 @@ const PetCard = ({ pet, openModal }) => {
         <p>{pet.comment}</p>
       </div>
       <div className="favorite_button">
-        <Button text={"Learn more"} onClick={() => openModal(pet)} />
+        <Button text={"Learn more"} color="primary" onClick={() => openModal(pet)} />
         <img
           className="favorit"
           src={isFavorite ? Crash : isHovered ? FavoritHover : Favorit}
