@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateUserAvatar } from '../../redux/slices/userSlice'; // Пример action для обновления аватара
+import { updateUserAvatar } from '../../redux/slices/userSlice'; 
 
 const AvatarUpload = () => {
   const [avatar, setAvatar] = useState(null);
@@ -12,7 +12,7 @@ const AvatarUpload = () => {
     
     reader.onloadend = () => {
       setAvatar(reader.result);
-      dispatch(updateUserAvatar(reader.result)); // Пример action для обновления аватара
+      dispatch(updateUserAvatar(reader.result)); 
     };
     
     if (file) {

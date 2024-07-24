@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Button from "../UI/Button"; // Путь к кнопке
-import style from "../style/FormElem.module.css"; // Путь к стилям
-import Input from "../../UI/Input"; // Путь к инпуту
+import Button from "../UI/Button"; 
+import style from "../style/FormElem.module.css"; 
+import Input from "../../UI/Input"; 
 import { useForm } from "react-hook-form";
 
 function FormElem(props) {

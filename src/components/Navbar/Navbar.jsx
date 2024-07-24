@@ -13,11 +13,11 @@ const Navbar = ({ isOpen }) => {
        
         <nav className={isOpen ? 'active' : ''}>
           <ul className="nav-links">
-            {/* <li>
+            <li>
               <NavLink
                className={location.pathname === '/home' ? 'active' : ''}
               to="/home"></NavLink>
-            </li> */}
+            </li>
             <li>
               <NavLink 
                className={location.pathname === '/news' ? 'active' : ''}
