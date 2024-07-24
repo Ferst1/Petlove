@@ -1,0 +1,110 @@
+[33mcommit cb7ef23d531e67675b5aae3265a7d2a65eff3c75[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/gh-pages[m[33m, [m[1;32mtemp-gh-pages[m[33m, [m[1;32mgh-pages[m[33m)[m
+Merge: 9f23406 f734879
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 22:11:29 2024 +0200
+
+    Merge branch 'gh-pages' of https://github.com/Ferst1/Petlove into gh-pages
+
+[33mcommit f7348793ce795f04d96782f0dcbd438d99132e39[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 21:56:31 2024 +0200
+
+    Updates
+
+[33mcommit 9f2340647694d0b65e9511fd32ab29495a6a7be6[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 21:55:36 2024 +0200
+
+    filter
+
+[33mcommit c5079342294d5d523b427dded33df0de063aa86f[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 18:09:02 2024 +0200
+
+    search in find pet
+
+[33mcommit 46ebdb4b2890aa43edcba04d46c2fd187770425e[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 13:10:30 2024 +0200
+
+    search news
+
+[33mcommit 868b3871dd94401b2d9e9be963381319e9803ed6[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 10:32:00 2024 +0200
+
+    working
+
+[33mcommit 7b9d9f39d7210cdf768a24372c01395ea4aea99b[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 08:51:57 2024 +0200
+
+    Ensure assets are correctly placed and update base path
+
+[33mcommit ed89a7584e7985205022b3fb326f6511d5fffde8[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Tue Jul 23 08:29:07 2024 +0200
+
+    Update base path for local development and GitHub Pages
+
+[33mcommit 0205475d6dba6b0c9546204435b50afbbf5f5354[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:41:47 2024 +0200
+
+    Update base path for local development and GitHub Pages
+
+[33mcommit 3a12de1ea5b657ecf0006252607887b549c6426c[m
+Merge: bfcbef3 f96408e
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:37:30 2024 +0200
+
+    Merge branch 'gh-pages' of github.com:Ferst1/Petlove
+
+[33mcommit f96408e8b8f2587c0601f535202b3abe81f6136a[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:37:28 2024 +0200
+
+    Updates
+
+[33mcommit bfcbef3cea34ed14ef4606202143537f6bf4cf84[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:37:16 2024 +0200
+
+    Deploying to GitHub Pages
+
+[33mcommit 05d546691a76c98e93d85415608e5354319fcfa5[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:36:18 2024 +0200
+
+    Update base path for GitHub Pages
+
+[33mcommit 0f38c527f6e6ccf2c58f4e7569c0e6e3e8dcd57a[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:32:03 2024 +0200
+
+    Updates
+
+[33mcommit 56429aa7b6fc466d060ad33a01ff7a9378d5e9a8[m
+Merge: 58c38c9 7fc6cca
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:26:20 2024 +0200
+
+    Resolved merge conflict in index.html
+
+[33mcommit 58c38c99469fa3faeb6ccaacf70473b2789c6d91[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:20:59 2024 +0200
+
+    Prepare for deployment
+
+[33mcommit 7fc6cca897d54e730a35dfbf592d3554fcca1f21[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:14:55 2024 +0200
+
+    Updates
+
+[33mcommit 4abef677d30838a0649529d0620e2c7c5bcecb20[m
+Author: Ferst1 <36508011+Ferst1@users.noreply.github.com>
+Date:   Mon Jul 22 22:00:46 2024 +0200
+
+    first commit petlove
