@@ -2,6 +2,7 @@
 @import "../styles/breakpoints.scss";
 
 .button_elem {
+  position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +31,7 @@
     background-color: #FFE44D;
     border: none;
     border-radius: 30px;
-    padding: 20px;
+    padding: 10px;
   }
   
   .yellow:hover {
@@ -42,3 +43,5 @@
     border: 0.5px solid #CFD8DC;
   }
   
+
+ 

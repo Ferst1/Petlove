@@ -79,3 +79,26 @@ letter-spacing: -0.03em
     color: rgba(38, 38, 38, 0.5);
     width: 18px;
 }
+
+.search_wrapper {
+    // существующие стили
+  }
+  
+  .search_field_form {
+    // существующие стили
+  }
+  
+  .radio_button {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button_with_clear {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+  
