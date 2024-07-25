@@ -1,47 +1,49 @@
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
+
 .button_elem {
   position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 14px 24px;
-    margin: 8px 0px;
-    border-radius: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .button_elem.active {
-    background: #f6b83d;
-    color: white;
-  }
-  
-  .primary {
-    background-color: #f6b83d;
-    color: white;
-  }
-  
-  .yellow {
-    background-color: #FFE44D;
-    border: none;
-    border-radius: 30px;
-    padding: 10px;
-  }
-  
-  .yellow:hover {
-    background-color: #fff;
-  }
-  
-  .white {
-    background-color: white;
-    border: 0.5px solid #CFD8DC;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  margin: 8px 0px;
+  border-radius: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
 
- 
+.button_elem.primary {
+  background-color: #f6b83d;
+  color: white;
+}
+
+.button_elem.white {
+  background: #fff4df;
+  color: $orange;
+  border: none;
+}
+
+.clear_icon {
+  position: absolute;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.button-icon {
+  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+.button-children, .button-text {
+  display: flex;
+  align-items: center;
+}

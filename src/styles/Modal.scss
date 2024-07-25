@@ -93,10 +93,15 @@ color:$black;
   color: $orange;
   background-color:$yellowlight;
   border-radius: 30px;
-padding: 8px 14px;
+  padding: 6px 8px;
 width: 52px;
 height: 34px;
 z-index: 100000;
+font-weight: 500;
+font-size: 14px;
+line-height: 129%;
+letter-spacing: -0.02em;
+
 }
 
 .pet-info h2 {
@@ -130,4 +135,60 @@ color: rgba(38, 38, 38, 0.5);
   .buttons_modal{
     display: flex;
     gap: 10px;
+    
   }
+
+
+  .name-rating{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+   
+   
+  }
+  .name-rating .star{
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+
+  }
+
+  .info_item 
+  {
+    margin-top: 20px;
+  }
+  .info_item p{
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: $black;
+  }
+
+.comment{
+  font-family: var(--font-family);
+
+  margin-top: 18px;
+  margin-bottom: 40px;
+  font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+color: $black;
+}
+
+.buttons_modal button{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.buttons_modal img {
+width: 19px;
+height: 18px;
+visibility: 0;
+padding: 0;
+}

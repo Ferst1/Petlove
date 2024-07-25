@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import OurFriendsPage from "./pages/OurFriendsPage/OurFriendsPage";
 import FavoritePetsPage from "./pages/FavoritePetsPage/FavoritePetsPage";
+import AddPetPage from "./pages/AddPetPage/AddPetPage";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <PrivateRoute><FavoritePetsPage /></PrivateRoute>,
+      },
+      {
+        path: "/add_pet",
+        element: <PrivateRoute><AddPetPage /></PrivateRoute>, 
       },
       {
         path: "*",

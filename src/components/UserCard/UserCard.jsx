@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
@@ -7,6 +8,7 @@ import UserLogo from "/images/user-profile/user-profile.png";
 import UserUpload from "/images/user-profile/user-upload.png";
 import UserEdit from "/images/user-profile/edit.png";
 import Button from '../UI/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const UserCard = () => {
   const user = useSelector((state) => state.user.user);
@@ -47,13 +49,17 @@ const UserCard = () => {
     fileInputRef.current.click();
   };
 
+  const navigate = useNavigate();
+
+  const handleAddPetClick = () => {
+    console.log('Navigating to /add_pet');
+    navigate('/add_pet');
+  };
+
   return (
     <div className="user-card">
       <div className="user-updated">
-        <img
-          className="user-logo"
-          src={UserLogo} alt="User Logo"
-        />
+        <img className="user-logo" src={UserLogo} alt="User Logo" />
         <div className="img-upload">
           <img className="user-upload" src={UserUpload} alt="User Upload" />
           <a onClick={handleUploadClick}>Upload photo</a>
@@ -96,24 +102,18 @@ const UserCard = () => {
                   className="change-name-input"
                 />
               </div>
-            
             </Form>
           </Formik>
         </>
       ) : (
         <p>Loading...</p>
       )}
-
-
-<div className='my-pets'>
-
-  <h3>My pets</h3>
-  <Button text={"Add pet +"} className="button-add"/> 
-</div>
-
+      <div className='my-pets'>
+        <h3>My pets</h3>
+        <Button text={"Add pet +"} className="button-add" onClick={handleAddPetClick} /> 
+      </div>
     </div>
   );
 };
-
 
 export default UserCard;

@@ -2,37 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../styles/Button.scss';
-import XWhite from "/images/x-white.svg";
 
 function Button(props) {
-  const { text, color, isActive, isClearable, onClear, ...otherProps } = props;
-
-  const handleClearClick = (e) => {
-    e.stopPropagation();
-    if (onClear) {
-      onClear();
-    }
-  };
+  const { text, isFavorite, children, ...otherProps } = props;
 
   return (
     <button 
       {...otherProps} 
-      className={`button_elem ${color || 'primary'} ${isActive ? 'active' : ''}`}
+      className={`button_elem ${isFavorite ? 'white' : 'primary'}`}
     >
-      {text}
-      {isClearable && (
-        <img src={XWhite} alt="Clear" className="clear_icon" onClick={handleClearClick} />
-      )}
+      <span className="button-text">{text}</span>
+      {!isFavorite && children}
     </button>
   );
 }
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  isActive: PropTypes.bool,
-  isClearable: PropTypes.bool,
-  onClear: PropTypes.func,
+  isFavorite: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default Button;

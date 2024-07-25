@@ -9,7 +9,9 @@
 
 
 
-
+body{
+  background-color: #CCCCCC;
+}
 
 ol,
 ul {

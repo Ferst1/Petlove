@@ -1,0 +1,113 @@
+
+
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.add-pet-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+
+  .pets-form {
+    border-radius: 60px;
+    max-width: 592px;
+    height: 654px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 60px 80px;
+    flex: 1;
+    min-width: 300px;
+    @include md {
+        max-width: 702px;
+  
+      }
+  }
+
+  .button-gender {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pets-title {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pets-title h2 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #262626;
+    @include md {
+      font-size: 24px;
+
+    }
+  }
+
+  .pets-title p {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: rgba(43, 43, 42, 0.4);
+    @include md {
+        font-size: 14px;
+  
+      }
+  }
+
+  .avatar-pet {
+    border-radius: 100px;
+    padding: 10px;
+    width: 86px;
+    height: 86px;
+  }
+
+  .add-pet-image {
+    width: 100%;
+    max-width: 592px;
+    height: 654px;
+    border-radius: 60px;
+    flex: 1;
+    min-width: 300px;
+    object-fit: cover; 
+  }
+
+  @include md {
+    flex-direction: column;
+
+    .add-pet-image {
+      order: -1;
+      max-width: 704px;
+      height: 248px;
+      border-radius: 60px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .pets-form {
+      padding: 40px 168px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.tablet {
+  @include md {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.buttun-form {
+  display: flex;
+  gap: 8px;
+}

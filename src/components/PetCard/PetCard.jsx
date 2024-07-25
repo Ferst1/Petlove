@@ -8,6 +8,7 @@ import FavoritHover from "/images/user-profile/heard-hover.png";
 import Crash from "/images/user-profile/crash.png";
 import "../../styles/PetCard.scss";
 import formatDate from "../../utils/formatData";
+import Star from "../../../public/images/star.png"
 
 const PetCard = ({ pet, openModal }) => {
   const dispatch = useDispatch();
@@ -38,11 +39,23 @@ const PetCard = ({ pet, openModal }) => {
   return (
     <div className="pets_item aos-animate">
       <img src={pet.imgURL} alt={pet.title} />
+     
+      <div className="name-rating">
+    
       <h3>{pet.title}</h3>
+      <div className="rating">
+      <img
+      src={Star}/>
+
+      <p>{pet.popularity}</p>
+      </div>
+      
+      </div>
       <div className="pets-data">
         <div className="data-item">
           <p>Name</p>
           <p>{pet.name}</p>
+          
         </div>
         <div className="data-item">
           <p>Birthday</p>

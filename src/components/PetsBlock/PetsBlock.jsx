@@ -1,11 +1,10 @@
-// components/PetsBlock/PetsBlock.jsx
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import '../../styles/PetsBlock.scss';
 
 const PetsBlock = () => {
-  const pets = useSelector((state) => state.user.user.pets);
+  const pets = useSelector((state) => state.user.user?.pets || []);
 
   return (
     <div className="pets-block">
@@ -23,3 +22,4 @@ const PetsBlock = () => {
 };
 
 export default PetsBlock;
+

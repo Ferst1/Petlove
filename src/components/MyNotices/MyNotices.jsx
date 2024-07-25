@@ -8,7 +8,6 @@ import { setShowFavorites } from '../../redux/slices/favoritePetsSlice';
 
 const MyNotices = () => {
   const dispatch = useDispatch();
-  const notices = useSelector((state) => state.user.noticesFavorites);
   const favoritePets = useSelector((state) => state.favoritePets.pets);
   const viewedPets = useSelector((state) => state.viewedPets.viewedPets);
   const showFavorites = useSelector((state) => state.favoritePets.showFavorites);
