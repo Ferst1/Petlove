@@ -20,11 +20,11 @@ const Header = ({ isHomePage }) => {
       <div className="center">
         <div className="logo">
           {isHomePage ? (
-            <Link to="/">
+            <Link to="/Petlove">
               <img src={Logo} alt="logo" />
             </Link>
           ) : (
-            <Link to="/">
+            <Link to="/Petlove">
               <img src={LogoToo} alt="logo" />
             </Link>
           )}

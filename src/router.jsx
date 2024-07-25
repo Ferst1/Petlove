@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "/petlove",
         index: true,
         element: <HomePage />,
       },

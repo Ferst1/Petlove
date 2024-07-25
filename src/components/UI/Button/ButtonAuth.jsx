@@ -1,10 +1,18 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../../styles/ButtonAuth.scss'; // Убедитесь, что путь к стилям правильный
+import { useNavigate } from 'react-router-dom';
+import '../../../styles/ButtonAuth.scss';
 
-const ButtonAuth = ({ text, to, className, onClick }) => {
+const ButtonAuth = ({ text, to, className }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(to);
+  };
+
   return (
-    <button className={`button_auth ${className}`} onClick={onClick}>
+    <button className={`button_auth ${className}`} onClick={handleClick}>
       {text}
     </button>
   );
@@ -12,9 +20,8 @@ const ButtonAuth = ({ text, to, className, onClick }) => {
 
 ButtonAuth.propTypes = {
   text: PropTypes.string.isRequired,
-  to: PropTypes.string,
+  to: PropTypes.string.isRequired,
   className: PropTypes.string,
-  onClick: PropTypes.func,
 };
 
 export default ButtonAuth;

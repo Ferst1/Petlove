@@ -5,12 +5,8 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center;   
     color: $white;
-   
-
-
 }
 
 .nav-links {
@@ -23,18 +19,21 @@
     
 }
 
-.nav-links li {
-   
+.special-li{
+    display: none; 
+}
+
+.nav-links li {  
     border: 1px solid rgba(38, 38, 38, 0.15);
     border-radius: 30px;
-    padding: 15px 20px;
-    
+    padding: 15px 20px;  
     background-color:$white;
 
     color: $black;
     &:hover{
-        border-color:$yellowlight;
-        
+        border-color:$orange;
+   
+     
     }
     @include md {
         display: none;
