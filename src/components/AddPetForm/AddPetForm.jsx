@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -7,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../../styles/AddPetForm.scss';
 import Button from '../UI/Button/Button';
+import DatePicker from '../DatePicker/DatePicker';
+import UploadSvg from '../../../public/images/upload-url.svg';
+import TypeSelect from '../UI/TypeSelect/TypeSelect';
+import ReactSelectStyles from '../../utils/ReactSelectStyles';
 
 const AddPetForm = () => {
   const dispatch = useDispatch();
@@ -19,26 +24,26 @@ const AddPetForm = () => {
       .matches(/^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/, 'Invalid URL format')
       .required('Image URL is required'),
     species: Yup.string().required('Species is required'),
-    birthday: Yup.string()
-      .matches(/^\d{4}-\d{2}-\d{2}$/, 'Birthday must be in YYYY-MM-DD format')
+    dateOfBirth: Yup.string()
+      .matches(/^\d{2}\.\d{2}\.\d{4}$/, 'Birthday must be in MM.DD.YYYY format')
       .required('Birthday is required'),
     sex: Yup.string().required('Sex is required')
   });
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(validationSchema)
+  const { register, handleSubmit, control, formState: { errors } } = useForm({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      dateOfBirth: '00.00.0000',
+    }
   });
 
   const onSubmit = async (data) => {
     try {
-      
       const response = await axios.post('/api/add-pet', data);
       if (response.status === 200) {
-      
         navigate('/profile');
       }
     } catch (error) {
-     
       alert(`Error: ${error.response.data.message}`);
     }
   };
@@ -49,48 +54,65 @@ const AddPetForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="add-pet-form">
-      <div>
-        <label>Title</label>
-        <input type="text" {...register('title')} />
-        <p>{errors.title?.message}</p>
+      <div className="form-group">
+        <input 
+          type="text" {...register('imgUrl')} 
+          placeholder='Enter URL'
+        />
+        <Button 
+          text={'Upload photo'} 
+          className='button-upload'
+        >
+          <img src={UploadSvg} alt="Upload" className="button-icon" />
+        </Button>
       </div>
-      <div>
-        <label>Name</label>
-        <input type="text" {...register('name')} />
-        <p>{errors.name?.message}</p>
+      
+      <div className="form-group full-width">
+        <input type="text" {...register('title')} placeholder='Title' />
       </div>
-      <div>
-        <label>Image URL</label>
-        <input type="text" {...register('imgUrl')} />
-        <p>{errors.imgUrl?.message}</p>
+     
+      <div className="form-group full-width">
+        <input type="text" {...register('name')} placeholder='Pet’s Name' />
       </div>
-      <div>
-        <label>Species</label>
-        <input type="text" {...register('species')} />
-        <p>{errors.species?.message}</p>
-      </div>
-      <div>
-        <label>Birthday</label>
-        <input type="text" {...register('birthday')} />
-        <p>{errors.birthday?.message}</p>
-      </div>
-      <div>
-        <label>Sex</label>
-        <div>
-          <label>
-            <input type="radio" value="male" {...register('sex')} /> Male
-          </label>
-          <label>
-            <input type="radio" value="female" {...register('sex')} /> Female
-          </label>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <Controller
+            name="dateOfBirth"
+            control={control}
+            render={({ field }) => (
+              <DatePicker
+                {...field}
+                placeholder="Date of birth"
+                error={errors.dateOfBirth ? 'true' : 'false'}
+                success={field.value && !errors.dateOfBirth ? 'true' : 'false'}
+              />
+            )}
+          />
+          {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
         </div>
-        <p>{errors.sex?.message}</p>
+        <div className="form-group">
+          <Controller
+            name="species"
+            control={control}
+            render={({ field }) => (
+              <TypeSelect
+                {...field}
+                onChange={(value) => field.onChange(value)}
+                placeholder="Type of pet"
+                styles={ReactSelectStyles}
+              />
+            )}
+          />
+          
+        </div>
       </div>
-      <div className="buttun-form">
-     <Button text="Sumit"/>  
-     <Button text="Back" onClick={handleBackClick}/>  
-     </div>
-   
+      
+     
+      <div className="button-form">
+        <Button text="Submit"/>  
+        <Button text="Back" onClick={handleBackClick}/>  
+      </div>
     </form>
   );
 };

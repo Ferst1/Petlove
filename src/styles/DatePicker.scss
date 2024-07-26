@@ -1,0 +1,37 @@
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.date-airpicker-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .date-airpicker-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #f6b83d;
+    border-radius: 30px;
+    max-width: 432px;
+    height: auto;
+    margin-right: 16px; 
+  }
+  
+  .date-airpicker-input.error {
+    border-color:$red;
+  }
+  
+  .date-airpicker-input.success {
+    border-color:$orange;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+  

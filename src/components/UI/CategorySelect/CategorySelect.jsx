@@ -1,7 +1,8 @@
 
-
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
+import ReactSelectStyles from '../../../utils/ReactSelectStyles';
+
 
 const categories = [
   "found",
@@ -26,6 +27,7 @@ const CategorySelect = ({ onChange }) => {
       isSearchable
       placeholder="Category"
       isClearable
+      styles={ReactSelectStyles}
     />
   );
 };

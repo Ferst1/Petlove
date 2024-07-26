@@ -1,5 +1,8 @@
+
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
+import ReactSelectStyles from '../../../utils/ReactSelectStyles';
+
 
 const genders = [
   "female",
@@ -24,8 +27,10 @@ const GenderSelect = ({ onChange }) => {
       isSearchable
       placeholder="By gender"
       isClearable
+      styles={ReactSelectStyles}
     />
   );
 };
 
 export default GenderSelect;
+

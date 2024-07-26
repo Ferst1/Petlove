@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
+import ReactSelectStyles from '../../../utils/ReactSelectStyles';
 
 const species = [
-  "dog",
-  "cat",
-  "monkey",
-  "bird",
-  "snake",
-  "turtle",
-  "lizard",
-  "frog",
-  "fish",
-  "ants",
-  "bees",
-  "butterfly",
-  "spider",
-  "scorpion"
+  { value: "dog", label: "Dog" },
+  { value: "cat", label: "Cat" },
+  { value: "monkey", label: "Monkey" },
+  { value: "bird", label: "Bird" },
+  { value: "snake", label: "Snake" },
+  { value: "turtle", label: "Turtle" },
+  { value: "lizard", label: "Lizard" },
+  { value: "frog", label: "Frog" },
+  { value: "fish", label: "Fish" },
+  { value: "ants", label: "Ants" },
+  { value: "bees", label: "Bees" },
+  { value: "butterfly", label: "Butterfly" },
+  { value: "spider", label: "Spider" },
+  { value: "scorpion", label: "Scorpion" }
 ];
 
-const TypeSelect = ({ onChange }) => {
-  const [selectedType, setSelectedType] = useState(null);
+const TypeSelect = ({ onChange, value, styles,placeholder }) => {
+  const [selectedType, setSelectedType] = useState(value ? { value, label: value } : null);
 
   const handleChange = (selectedOption) => {
     setSelectedType(selectedOption);
@@ -30,10 +31,12 @@ const TypeSelect = ({ onChange }) => {
     <ReactSelect 
       value={selectedType}
       onChange={handleChange}
-      options={species.map(type => ({ value: type, label: type }))}
+      options={species}
       isSearchable
-      placeholder="By type"
+      placeholder={placeholder}
+      styles={ReactSelectStyles}
       isClearable
+      
     />
   );
 };

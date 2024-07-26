@@ -53,7 +53,10 @@ const SearchField = ({ categories, genders, types, locations, onSearch, onClear,
       <div className='search_field_form'>
         <CategorySelect onChange={handleCategoryChange} categories={categories} />
         <GenderSelect onChange={handleGenderChange} genders={genders} />
-        <TypeSelect onChange={handleTypeChange} types={types} />
+        <TypeSelect 
+        placeholder="Type of"
+        
+        onChange={handleTypeChange} types={types} />
         <LocationInput onChange={handleLocationChange} locations={locations} />
       </div>
       <div className="radio_button">

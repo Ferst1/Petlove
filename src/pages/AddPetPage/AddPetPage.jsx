@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import AddPetForm from '../../components/AddPetForm/AddPetForm';
 import '../../styles/PetsBlock.scss';
 import '../../styles/AddPetPage.scss';
-import AvatarPets from "../../../public/images/avatar-pets.png";
-import AddPets from "../../../public/images/addmypat.jpg";
-import AddPetsTablet from "../../../public/images/addmypets-tablet.png";
-import Femali from "../../../public/images/female.png"
-import Male from "../../../public/images/male.png"
-import Multiple from "../../../public/images/multiple.png"
+ import AvatarPets from "/public/images/avatar-pets.png";
+import AddPets from "/public/images/addmypat.jpg";
+import AddPetsTablet from "/public/images/addmypets-tablet.png";
+import Femali from "/public/images/female.png"
+import Male from "/public/images/male.png"
+import Multiple from "/public/images/multiple.png"
 
 const AddPetPage = () => {
   const [currentImage, setCurrentImage] = useState(AddPets);
