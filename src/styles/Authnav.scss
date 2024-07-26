@@ -6,11 +6,17 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  text-transform: uppercase;
   font-weight: 700;
   line-height: 1.25;
-  color: $black;
+  color: $white;
   cursor: pointer;
+  a{
+    color: $white;
+    &:hover{
+      color: $orange;
+    }
+  }
+  
 
   @include mm {
     flex-direction: column;

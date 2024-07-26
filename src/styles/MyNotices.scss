@@ -2,10 +2,12 @@
 @import "../styles/breakpoints.scss";
 
 .my-notices {
+  margin-top: 40px;
   .tabs {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+  
 
     .tab {
       padding: 10px 20px;

@@ -1,27 +1,29 @@
 
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../../../styles/ButtonAuth.scss';
 
-const ButtonAuth = ({ text, to, className }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(to);
-  };
-
+const ButtonAuth = ({ text, to, className, onClick }) => {
   return (
-    <button className={`button_auth ${className}`} onClick={handleClick}>
-      {text}
+    <button className={`button-auth ${className}`} onClick={onClick}>
+      {to ? <NavLink to={to}>{text}</NavLink> : text}
     </button>
   );
 };
 
 ButtonAuth.propTypes = {
   text: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
   className: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+ButtonAuth.defaultProps = {
+  to: null,
+  className: '',
+  onClick: null,
 };
 
 export default ButtonAuth;

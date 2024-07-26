@@ -1,12 +1,10 @@
 
-
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../styles/Button.scss';
 
 function Button(props) {
-  const { text, isFavorite, className, style, children, ...otherProps } = props;
+  const { text, isFavorite, className, style,type = 'button', children, ...otherProps } = props;
 
   return (
     <button 
@@ -24,6 +22,7 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
   isFavorite: PropTypes.bool,
   className: PropTypes.string,
+  type: PropTypes.string,
   style: PropTypes.object,
   children: PropTypes.node,
 };

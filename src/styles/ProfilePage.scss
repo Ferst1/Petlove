@@ -6,9 +6,8 @@
 
 
 .profile-page{
-
-
     display: flex;
+    gap: 32px;
 }
 .user-card {
     display: flex;
@@ -29,3 +28,5 @@
         color: $orange;
       }
   
+
+      

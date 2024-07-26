@@ -1,32 +1,80 @@
+// @import "../styles/variables.scss";
+// @import "../styles/breakpoints.scss";
+
+
+// .button_auth {
+//     background-color: $orange;
+//     padding: 15px 20px;
+//     border-radius: 30px;
+//     border: 1px solid rgba(255, 255, 255, 0.4);
+//     text-decoration: none;
+//     color: $white;
+  
+//     &:hover {
+//       background-color: $yellowlight;
+//       color: $orange;
+//     }
+  
+//     @include lg {
+//       font-size: 12px;
+//       margin-right: 16px;
+//     }
+  
+//     @include md {
+//       margin-right: 5px;
+//       padding: 10px 15px;
+//     }
+  
+//     @include mm2 {
+//       display: none;
+//     }
+//   }
+  
+
+
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
-
 .button_auth {
-    background-color: $orange;
-    padding: 15px 20px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: $orange;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  color: $white; // Убедитесь, что переменная $white определена в variables.scss
+  font-family: var(--font-family); // Добавьте шрифты
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $yellowlight;
+    color: $orange;
+  }
+
+  @include lg {
+    font-size: 12px;
+    margin-right: 16px;
+  }
+
+  @include md {
+    margin-right: 5px;
+    padding: 10px 15px;
+  }
+
+  @include mm2 {
+    display: none;
+  }
+
+
+  a {
+    color: inherit;
     text-decoration: none;
-    color: $white;
-  
+
     &:hover {
-      background-color: $yellowlight;
       color: $orange;
     }
-  
-    @include lg {
-      font-size: 12px;
-      margin-right: 16px;
-    }
-  
-    @include md {
-      margin-right: 5px;
-      padding: 10px 15px;
-    }
-  
-    @include mm2 {
-      display: none;
-    }
   }
-  
+}

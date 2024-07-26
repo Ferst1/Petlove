@@ -6,15 +6,27 @@ import '../../styles/UserBar.scss';
 import Avatar from "/images/avatar.png"; 
 import { NavLink } from 'react-router-dom';
 import ButtonAuth from '../UI/Button/ButtonAuth';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/slices/userSlice';
 
-const UserBar = ({ avatar, name, onLogout }) => {
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+const UserBar = ({ avatar, name }) => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className="user-bar">
       <NavLink to="/profile" className="user_info">
         <img src={avatar || Avatar} alt={`${name}'s avatar`} className="user-avatar" />
-        <span className="user-name">{name}</span>
+        <span className="user-name">{capitalizeFirstLetter(name)}</span>
       </NavLink>
-      <ButtonAuth text="Logout" to="#" className="logout" onClick={onLogout} />
+      <ButtonAuth text="Logout" to="#" className="logout" onClick={handleLogout} />
     </div>
   );
 };
@@ -22,7 +34,6 @@ const UserBar = ({ avatar, name, onLogout }) => {
 UserBar.propTypes = {
   avatar: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onLogout: PropTypes.func.isRequired,
 };
 
 UserBar.defaultProps = {
