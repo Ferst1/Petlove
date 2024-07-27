@@ -6,6 +6,13 @@ import '../../../styles/Button.scss';
 function Button(props) {
   const { text, isFavorite, className, style, type = 'button', color = 'primary', isActive, isClearable, onClear, children, ...otherProps } = props;
 
+  const handleClearClick = (e) => {
+    e.stopPropagation();
+    if (onClear) {
+      onClear();
+    }
+  };
+
   return (
     <button 
       {...otherProps} 
@@ -15,7 +22,7 @@ function Button(props) {
     >
       <span className="button-text">{text}</span>
       {children}
-      {isClearable && <span className="clear_icon" onClick={onClear}>✕</span>}
+      {isClearable && <span className="clear_icon" onClick={handleClearClick}>✕</span>}
     </button>
   );
 }
