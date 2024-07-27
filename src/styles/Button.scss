@@ -1,6 +1,6 @@
 
 
-@import "../styles/variables.scss"; 
+@import "../styles/variables.scss";
 
 .button_elem {
   position: relative;
@@ -10,7 +10,6 @@
   padding: 14px 24px;
   margin: 8px 0px;
   border-radius: 50px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -25,17 +24,50 @@
       color: $black !important;
     }
   }
+
+  &.primary {
+    background-color: $orange;
+    color: $white;
+
+    &:hover {
+      background-color: $yellowlight;
+      color: $orange;
+    }
+
+    &:active {
+      background-color: $yellowlight;
+      color: $orange;
+    }
+  }
+
+  &.white {
+    background: $white;
+    color: $black;
+    border: 1px solid $orange;
+
+    &:hover {
+      background: darken($yellowlight, 10%);
+    }
+
+    &:active {
+      background-color: #f6b83d;
+      color: $white;
+    }
+
+    &.active {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+
+  &.active {
+    background-color: $orange;
+    color: $white;
+  }
 }
 
-.button_elem.primary {
-  background-color: $orange;
-  color: white;
-}
-
-.button_elem.white {
-  background: $yellowlight;
-  color: $orange;
-  border: none;
+.button_elem span {
+  color: inherit;
 }
 
 .clear_icon {

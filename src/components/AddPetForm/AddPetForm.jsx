@@ -1,3 +1,4 @@
+
 // import React, { useState } from 'react';
 // import { useForm, Controller } from 'react-hook-form';
 // import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,7 +10,7 @@
 // import '../../styles/AddPetForm.scss';
 // import Button from '../UI/Button/Button';
 // import DatePicker from '../DatePicker/DatePicker';
-// import UploadSvg from '../../../public/images/upload-url.svg';
+// // import UploadSvg from '../../../public/images/upload-url.svg';
 // import TypeSelect from '../UI/TypeSelect/TypeSelect';
 // import ReactSelectStyles from '../../utils/ReactSelectStyles';
 // import { addNotice } from '../../redux/slices/petsSlice';
@@ -19,13 +20,13 @@
 // import Multiple from "/public/images/multiple.png";
 
 // import AvatarPets from "/public/images/avatar-pets.png";
-
+// import UploadInput from '../UI/UploadInput/UploadInput';
 // const AddPetForm = () => {
 //   const dispatch = useDispatch();
 //   const navigate = useNavigate();
 //   const [selectedGender, setSelectedGender] = useState('');
 //   const [avatarUrl, setAvatarUrl] = useState(AvatarPets);
-//   const { token } = useSelector((state) => state.user); // предполагаем, что у вас есть токен пользователя в состоянии
+//   const { token } = useSelector((state) => state.user); 
 
 //   const validationSchema = Yup.object().shape({
 //     title: Yup.string().required('Title is required'),
@@ -94,7 +95,7 @@
 //       <div className="avatar">
 //         <img src={avatarUrl} alt="avatar pet" className="avatar-pet" />
 //       </div>
-//       <div className="form-group">
+//       {/* <div className="form-group">
 //         <input 
 //           type="text" {...register('imgUrl')} 
 //           placeholder='Enter URL'
@@ -107,7 +108,9 @@
 //         >
 //           <img src={UploadSvg} alt="Upload" className="button-icon" />
 //         </Button>
-//       </div>
+//       </div> */}
+
+// <UploadInput/>  
 //       {errors.imgUrl && <p>{errors.imgUrl.message}</p>}
 //       <div className="form-group full-width">
 //         <input type="text" {...register('title')} placeholder='Title' />
@@ -161,8 +164,6 @@
 // export default AddPetForm;
 
 
-
-
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -174,7 +175,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/AddPetForm.scss';
 import Button from '../UI/Button/Button';
 import DatePicker from '../DatePicker/DatePicker';
-import UploadSvg from '../../../public/images/upload-url.svg';
 import TypeSelect from '../UI/TypeSelect/TypeSelect';
 import ReactSelectStyles from '../../utils/ReactSelectStyles';
 import { addNotice } from '../../redux/slices/petsSlice';
@@ -184,13 +184,14 @@ import Male from "/public/images/male.png";
 import Multiple from "/public/images/multiple.png";
 
 import AvatarPets from "/public/images/avatar-pets.png";
+import UploadInput from '../UI/UploadInput/UploadInput';
 
 const AddPetForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selectedGender, setSelectedGender] = useState('');
   const [avatarUrl, setAvatarUrl] = useState(AvatarPets);
-  const { token } = useSelector((state) => state.user); // предполагаем, что у вас есть токен пользователя в состоянии
+  const { token } = useSelector((state) => state.user); 
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
@@ -259,20 +260,9 @@ const AddPetForm = () => {
       <div className="avatar">
         <img src={avatarUrl} alt="avatar pet" className="avatar-pet" />
       </div>
-      <div className="form-group">
-        <input 
-          type="text" {...register('imgUrl')} 
-          placeholder='Enter URL'
-        />
-        <Button 
-          type="button"
-          text={'Upload photo'} 
-          className='button-upload'
-          onClick={handleAvatarUpload}
-        >
-          <img src={UploadSvg} alt="Upload" className="button-icon" />
-        </Button>
-      </div>
+
+      <UploadInput register={register} handleAvatarUpload={handleAvatarUpload} />  
+
       {errors.imgUrl && <p>{errors.imgUrl.message}</p>}
       <div className="form-group full-width">
         <input type="text" {...register('title')} placeholder='Title' />

@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import '../../../styles/Button.scss';
 
 function Button(props) {
-  const { text, isFavorite, className, style,type = 'button', children, ...otherProps } = props;
+  const { text, isFavorite, className, style, type = 'button', color = 'primary', isActive, isClearable, onClear, children, ...otherProps } = props;
 
   return (
     <button 
       {...otherProps} 
-      className={`button_elem ${isFavorite ? 'white' : 'primary'} ${className}`}
+      className={`button_elem ${isFavorite ? 'white' : color} ${isActive ? 'active' : ''} ${className}`}
       style={style}
+      type={type}
     >
       <span className="button-text">{text}</span>
-      {!isFavorite && children}
+      {children}
+      {isClearable && <span className="clear_icon" onClick={onClear}>✕</span>}
     </button>
   );
 }
@@ -24,6 +26,10 @@ Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   style: PropTypes.object,
+  color: PropTypes.string,
+  isActive: PropTypes.bool,
+  isClearable: PropTypes.bool,
+  onClear: PropTypes.func,
   children: PropTypes.node,
 };
 

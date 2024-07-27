@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '../../../styles/ButtonAuth.scss';
 
+
 const ButtonAuth = ({ text, to, className, onClick }) => {
   return (
     <button className={`button-auth ${className}`} onClick={onClick}>

@@ -9,14 +9,17 @@ import UserUpload from "/images/user-profile/user-upload.png";
 import UserEdit from "/images/user-profile/edit.png";
 import Button from '../UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import ModalEdit from '../ModalEdit/ModalEdit'; 
 
 const UserCard = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  const [avatar, setAvatar] = useState(user?.avatar || 'default-avatar.png');
+  const [avatar, setAvatar] = useState(user?.avatar || UserLogo);
+  const [uploadAvatar, setUploadAvatar] = useState(user?.avatar || UserUpload);
   const [username, setUsername] = useState(user?.name || '');
   const [email, setEmail] = useState(user?.email || '');
   const [phone, setPhone] = useState(user?.phone || '');
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false); 
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
@@ -24,7 +27,7 @@ const UserCard = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setAvatar(reader.result);
+        setUploadAvatar(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -41,8 +44,13 @@ const UserCard = () => {
     }
   };
 
-  const handleSubmit = (values) => {
-    dispatch(updateUser({ ...user, name: values.name, email: values.email, phone: values.phone, avatar }));
+  const handleSave = (values) => {
+    setAvatar(UserLogo);
+    setUploadAvatar(values.avatar || UserUpload);
+    setUsername(values.name);
+    setEmail(values.email);
+    setPhone(values.phone);
+    dispatch(updateUser({ ...user, name: values.name, email: values.email, phone: values.phone, avatar: values.avatar }));
   };
 
   const handleUploadClick = () => {
@@ -52,16 +60,19 @@ const UserCard = () => {
   const navigate = useNavigate();
 
   const handleAddPetClick = () => {
-    console.log('Navigating to /add_pet');
     navigate('/add_pet');
+  };
+
+  const handleEditClick = () => {
+    setIsEditModalOpen(true);
   };
 
   return (
     <div className="user-card">
       <div className="user-updated">
-        <img className="user-logo" src={UserLogo} alt="User Logo" />
+        <img className="user-logo" src={avatar} alt="User Logo" />
         <div className="img-upload">
-          <img className="user-upload" src={UserUpload} alt="User Upload" />
+          <img className="user-upload" src={uploadAvatar} alt="User Upload" />
           <a onClick={handleUploadClick}>Upload photo</a>
           <input
             type="file"
@@ -72,11 +83,11 @@ const UserCard = () => {
             style={{ display: 'none' }}
           />
         </div>
-        <img className="user-edit" src={UserEdit} alt="User Edit" />
+        <img className="user-edit" src={UserEdit} alt="User Edit" onClick={handleEditClick} />
       </div>
       {user ? (
         <>
-          <Formik initialValues={{ name: username, email: email, phone: phone }} onSubmit={handleSubmit}>
+          <Formik initialValues={{ name: username, email: email, phone: phone }} onSubmit={handleSave}>
             <Form>
               <div className="name-input-wrapper">
                 <Field
@@ -110,8 +121,9 @@ const UserCard = () => {
       )}
       <div className='my-pets'>
         <h3>My pets</h3>
-        <Button text={"Add pet +"} className="button-add" onClick={handleAddPetClick} /> 
+        <Button text={"Add pet +"} className="button-add" onClick={handleAddPetClick} />
       </div>
+      <ModalEdit isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} user={user} onSave={handleSave} />
     </div>
   );
 };
