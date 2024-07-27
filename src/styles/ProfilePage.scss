@@ -3,8 +3,6 @@
 @import "../styles/breakpoints.scss";
 
 
-
-
 .profile-page{
     display: flex;
     gap: 32px;
@@ -21,11 +19,25 @@
    background-color: $white;
   } 
 
-
-  
     .logout-btn {
         background-color: #fff4df;
         color: $orange;
+        border-radius: 30px;
+        padding: 15px 35px;
+       width: 136px;
+        height: 50px;
+        font-family: var(--font-family);
+font-weight: 700;
+font-size: 16px;
+line-height: 1.25;
+letter-spacing: -0.03em;
+text-transform: uppercase;
+transition:background-color $transitionDuration;
+ &:hover {
+    background-color:$orange;
+    color: $white;
+  }
+
       }
   
 

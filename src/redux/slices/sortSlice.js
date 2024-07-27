@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const sortSlice = createSlice({
   name: 'sort',
   initialState: {
-    sortBy: 'none', // возможные значения: 'none', 'popularity', 'unpopularity', 'cheap', 'expensive'
+    sortBy: 'none', 
   },
   reducers: {
     setSortBy(state, action) {

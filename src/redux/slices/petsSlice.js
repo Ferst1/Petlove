@@ -12,7 +12,7 @@ export const addNotice = createAsyncThunk('pets/addNotice', async ({ token, ...d
         'Content-Type': 'application/json',
       },
     };
-    // Пример запроса на добавление питомца
+    
     const response = await axios.post(`${API_BASE_URL}/notices`, data, config);
     return response.data;
   } catch (error) {
