@@ -1,8 +1,7 @@
-
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { userLogin } from "../../redux/slices/userSlice";
+import { login } from "../../redux/slices/userSlice"; // Используем login
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import "../../styles/FormStyles.scss";
@@ -24,7 +23,7 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
-    dispatch(userLogin(values)).finally(() => setSubmitting(false));
+    dispatch(login(values)).finally(() => setSubmitting(false));
   };
 
   return (

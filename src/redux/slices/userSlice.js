@@ -1,101 +1,71 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { signup as signupAPI, login as loginAPI, updateUser as updateUserAPI } from '../../services/authService';
+import { login as apiLogin, signup as apiSignup, updateUser as apiUpdateUser, updateAvatar as apiUpdateAvatar } from '../../services/authService';
 
-
-export const userSignup = createAsyncThunk('user/signup', async (userData, thunkAPI) => {
-  try {
-    const response = await signupAPI(userData.name, userData.email, userData.password);
-    return response;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
+export const signup = createAsyncThunk('user/signup', async ({ name, email, password }) => {
+  const user = await apiSignup(name, email, password);
+  return user;
 });
 
-export const userLogin = createAsyncThunk('user/login', async (credentials, thunkAPI) => {
-  try {
-    const response = await loginAPI(credentials.email, credentials.password);
-    return response;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data);
-  }
+export const login = createAsyncThunk('user/login', async ({ email, password }) => {
+  const user = await apiLogin(email, password);
+  return user;
 });
 
-export const updateUser = createAsyncThunk('user/update', async (userData, thunkAPI) => {
-  try {
-    const response = await updateUserAPI(userData);
-    return response;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
+export const updateUser = createAsyncThunk('user/updateUser', async (userData) => {
+  const updatedUser = await apiUpdateUser(userData);
+  return updatedUser;
 });
 
+export const updateAvatar = createAsyncThunk('user/updateAvatar', async ({ uid, avatar }) => {
+  const updatedAvatar = await apiUpdateAvatar(uid, avatar);
+  return { uid, avatar: updatedAvatar.avatar };
+});
 
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    token: null,
     user: null,
-    error: null,
+    token: null,
     status: 'idle',
-    noticesFavorites: []
+    error: null,
   },
   reducers: {
     logout: (state) => {
-      state.token = null;
       state.user = null;
-      state.noticesFavorites = [];
+      state.token = null;
     },
-    updateUserAvatar: (state, action) => {
-      if (state.user) {
-        state.user.avatar = action.payload;
-      }
-    },
-    setUser: (state, action) => {
-      state.user = action.payload;
-    }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(userSignup.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(userSignup.fulfilled, (state, action) => {
-        state.token = action.payload.token;
+      .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.noticesFavorites = action.payload.noticesFavorites || [];
+        state.token = action.payload.token;
         state.status = 'succeeded';
       })
-      .addCase(userSignup.rejected, (state, action) => {
-        state.error = action.payload;
-        state.status = 'failed';
-      })
-      .addCase(userLogin.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(userLogin.fulfilled, (state, action) => {
-        state.token = action.payload.token;
+      .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.noticesFavorites = action.payload.noticesFavorites || [];
+        state.token = action.payload.token;
         state.status = 'succeeded';
-      })
-      .addCase(userLogin.rejected, (state, action) => {
-        state.error = action.payload;
-        state.status = 'failed';
-      })
-      .addCase(updateUser.pending, (state) => {
-        state.status = 'loading';
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.user = { ...state.user, ...action.payload };
+        state.user = action.payload;
         state.status = 'succeeded';
       })
-      .addCase(updateUser.rejected, (state, action) => {
-        state.error = action.payload;
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        if (state.user) {
+          state.user.avatar = action.payload.avatar;
+        }
+        state.status = 'succeeded';
+      })
+      .addMatcher(action => action.type.endsWith('/pending'), (state) => {
+        state.status = 'loading';
+      })
+      .addMatcher(action => action.type.endsWith('/rejected'), (state, action) => {
         state.status = 'failed';
+        state.error = action.error.message;
       });
-  }
+  },
 });
 
-
-export const { logout, updateUserAvatar, setUser } = userSlice.actions;
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

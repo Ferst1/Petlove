@@ -2,7 +2,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { userSignup } from "../../redux/slices/userSlice";
+import { signup } from "../../redux/slices/userSlice"; 
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import "../../styles/FormStyles.scss";
@@ -22,18 +22,17 @@ const RegistrationForm = () => {
     name: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string().min(6, "Must be at least 6 characters").required("Required"),
-    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required')
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
-    dispatch(userSignup({ name: values.name, email: values.email, password: values.password })).finally(() => setSubmitting(false));
+    dispatch(signup(values)).finally(() => setSubmitting(false));
   };
 
   return (
     <div className="form_container">
-      <h2>Registration</h2>
+      <h2>Sign Up</h2>
       <Formik
-        initialValues={{ name: "", email: "", password: "", confirmPassword: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
@@ -54,13 +53,8 @@ const RegistrationForm = () => {
               <Field id="password" type="password" name="password" className="label" autoComplete="new-password" />
               <ErrorMessage name="password" component="div" />
             </div>
-            <div>
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <Field id="confirmPassword" type="password" name="confirmPassword" className="label" autoComplete="new-password" />
-              <ErrorMessage name="confirmPassword" component="div" />
-            </div>
             <button type="submit" disabled={isSubmitting} className="btnSignup">
-              Register
+              Sign Up
             </button>
             {status === "failed" && <div>{error}</div>}
           </Form>
