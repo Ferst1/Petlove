@@ -2,8 +2,7 @@
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
-
-.search_wrapper{
+.search_wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -14,39 +13,39 @@
     height: 216px;  
     position: relative;
     background-color: $yellowlight;
-   
+    overflow: visible; 
 }
 
-.radio_button{
+.radio_button {
     display: flex;
     gap: 8px;
-    
 }
 
-.search_field_form{
+.search_field_form {
     display: flex;
-  gap: 20px;
-   
+    gap: 20px;
+    position: relative;
+    z-index: 1; 
 }
-.search{
+
+.search {
     position: absolute;
-    left:220px;
+    left: 220px;
     top: 100px;
     cursor: pointer;
     color: rgba(38, 38, 38, 0.5);
     width: 18px;
-    
-   
 }
 
-.clear-icon{
+.clear-icon {
     position: absolute;
     left: 200px;
     top: 95px;
     color: rgba(38, 38, 38, 0.5);
     display: none;
 }
-.search_field_input{
+
+.search_field_input {
     border: none;
     outline: none;
     height: 40px;
@@ -54,15 +53,13 @@
     font-size: 16px;
     padding-left: 20px;
     padding-right: 20px;
-   
-   
 }
 
-.search_field_input::placeholder{
+.search_field_input::placeholder {
     color: rgba(38, 38, 38, 0.5);
 }
 
-.search_location{
+.search_location {
     position: absolute;
     right: 20px;
     top: 100px;
@@ -71,25 +68,54 @@
     width: 18px;
 }
 
-.search_wrapper {
-    // существующие стили
-  }
-  
-  .search_field_form {
-    // существующие стили
-  }
-  
-  .radio_button {
+.radio_button {
     display: flex;
     gap: 10px;
-  }
-  
-  .button_with_clear {
+}
+
+.button_with_clear {
     margin-left: 8px;
     display: flex;
     align-items: center;
     width: 15px;
     height: 15px;
     cursor: pointer;
-  }
-  
+}
+
+.lableText {
+    text-align: start;
+    color: #89898a;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.text {
+    text-align: start;
+    color: #8a8a89;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    position: absolute;
+}
+
+.custom-dropdown {
+    position: relative;
+    z-index: 2;
+}
+
+.custom-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000; 
+    overflow: visible;
+}

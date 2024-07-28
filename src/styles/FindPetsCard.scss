@@ -27,7 +27,7 @@
 }
 
 .pets_item {
-    width: calc(33.333% - 32px); 
+    max-width: 363px;
     margin-bottom: 32px;
     padding: 24px;
     border-radius: 60px;

@@ -107,7 +107,7 @@
 
 .url-input,
 .full-width-input {
-  border: 1px solid #f6b83d;
+  border: 1px solid $orange;
   border-radius: 30px;
   padding: 12px 16px;
   width: 100%;
@@ -138,6 +138,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; // Добавьте это, если у вас есть иконка внутри кнопки, чтобы задать расстояние между текстом и иконкой
+  gap: 8px; 
 }
 

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import PetCard from "../PetCard/PetCard";
 import Modal from "../Modal/Modal";
-import ModalAttention from "../ModalAttention/ModalAttention"; // Импортируем новое модальное окно
+import ModalAttention from "../ModalAttention/ModalAttention";
 import { useDispatch, useSelector } from "react-redux";
 import { addViewedPet } from "../../redux/slices/viewedPetsSlice";
 import "../../styles/FindPetsCard.scss";
