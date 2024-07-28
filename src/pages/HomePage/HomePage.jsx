@@ -1,3 +1,4 @@
+
 import React from 'react';
 import '../../styles/Home.scss';
 import img from '../../../images/userhomepaje.jpg';
@@ -15,7 +16,6 @@ const HomePage = () => {
         </div>
         <div className='section_second'>
           <img src={img} alt='home_page'/>
-          
         </div>
       </section>
     </div>

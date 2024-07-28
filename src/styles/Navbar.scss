@@ -1,11 +1,11 @@
+
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
-
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
     color: $white;
 }
 
@@ -14,38 +14,81 @@
     gap: 5px;
     justify-content: center;
     align-items: center;
-    list-style: none; 
-    padding: 0; 
-    
+    list-style: none;
+    padding: 0;
 }
 
-.special-li{
-    display: none; 
+.nav-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    color: $black; 
+
+    &.active {
+        font-weight: bold;
+    }
+
+   
 }
 
-.nav-links li {  
+.home-nav .nav-link,
+.home-link a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.03em;
+    color: #fff; 
+    background-color: $orange; 
+    border: 1px solid $orange; 
+}
+
+.home-nav .nav-link:hover,
+.home-link a:hover {
+    background-color: #fff4df; 
+    border: 1px solid #fff; 
+}
+
+.special-li {
+    display: none;
+}
+
+.nav-links li {
     border: 1px solid rgba(38, 38, 38, 0.15);
     border-radius: 30px;
-    padding: 15px 20px;  
-    background-color:$white;
+    padding: 15px 20px;
+    background-color: $white; 
+    color: $black; 
 
-    color: $black;
-    &:hover{
-        border-color:$orange;
-   
-     
+    &:hover {
+        border-color: $orange;
     }
+
+    &.home-link {
+        background-color: $orange; 
+        border: 1px solid $white; 
+    }
+
+    &.home-link a {
+        color: #fff; 
+    }
+
+    &.home-link a:hover {
+        background-color: #fff4df; 
+        border: 1px solid #fff; 
+    }
+
     @include md {
         display: none;
     }
-    @include md{
+
+    @include md {
         padding: 5px 10px;
         font-size: 14px;
         gap: 3px;
     }
-
 }
 
 .logo {
-    margin-left: 20px; 
+    margin-left: 20px;
 }

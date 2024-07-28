@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/petlove",
+        path: "/",
         index: true,
         element: (
           <Suspense fallback={<div>Loading...</div>}>
