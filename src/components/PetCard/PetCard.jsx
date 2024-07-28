@@ -8,7 +8,7 @@ import FavoritHover from "/images/user-profile/heard-hover.png";
 import Crash from "/images/user-profile/crash.png";
 import "../../styles/PetCard.scss";
 import formatDate from "../../utils/formatData";
-import Star from "../../../public/images/star.png"
+import Star from "/images/star.png"
 
 const PetCard = ({ pet, openModal }) => {
   const dispatch = useDispatch();
