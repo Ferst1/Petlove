@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -40,22 +41,22 @@ const RegistrationForm = () => {
           <Form className="form">
             <div>
               <label htmlFor="name">Name</label>
-              <Field type="text" name="name" className="label" />
+              <Field id="name" type="text" name="name" className="label" autoComplete="name" />
               <ErrorMessage name="name" component="div" />
             </div>
             <div>
               <label htmlFor="email">Email</label>
-              <Field type="email" name="email" className="label" />
+              <Field id="email" type="email" name="email" className="label" autoComplete="email" />
               <ErrorMessage name="email" component="div" />
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <Field type="password" name="password" className="label" />
+              <Field id="password" type="password" name="password" className="label" autoComplete="new-password" />
               <ErrorMessage name="password" component="div" />
             </div>
             <div>
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <Field type="password" name="confirmPassword" className="label" />
+              <Field id="confirmPassword" type="password" name="confirmPassword" className="label" autoComplete="new-password" />
               <ErrorMessage name="confirmPassword" component="div" />
             </div>
             <button type="submit" disabled={isSubmitting} className="btnSignup">
@@ -70,4 +71,3 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
-

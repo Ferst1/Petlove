@@ -1,7 +1,8 @@
+
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { login } from "../../redux/slices/userSlice";
+import { userLogin } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import "../../styles/FormStyles.scss";
@@ -23,7 +24,7 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
-    dispatch(login(values)).finally(() => setSubmitting(false));
+    dispatch(userLogin(values)).finally(() => setSubmitting(false));
   };
 
   return (
@@ -38,12 +39,12 @@ const LoginForm = () => {
           <Form className="form">
             <div>
               <label htmlFor="email">Email</label>
-              <Field type="email" name="email" className="label" />
+              <Field id="email" type="email" name="email" className="label" autoComplete="email" />
               <ErrorMessage name="email" component="div" />
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <Field type="password" name="password" className="label" />
+              <Field id="password" type="password" name="password" className="label" autoComplete="current-password" />
               <ErrorMessage name="password" component="div" />
             </div>
             <button type="submit" disabled={isSubmitting} className="btnSignup">
@@ -58,9 +59,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-
-
-
-
-

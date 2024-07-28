@@ -1,6 +1,6 @@
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { signup as signupAPI, login as loginAPI, updateUser as updateUserAPI } from '../../services/authService';
+
 
 export const userSignup = createAsyncThunk('user/signup', async (userData, thunkAPI) => {
   try {
@@ -11,7 +11,7 @@ export const userSignup = createAsyncThunk('user/signup', async (userData, thunk
   }
 });
 
-export const login = createAsyncThunk('user/login', async (credentials, thunkAPI) => {
+export const userLogin = createAsyncThunk('user/login', async (credentials, thunkAPI) => {
   try {
     const response = await loginAPI(credentials.email, credentials.password);
     return response;
@@ -28,6 +28,7 @@ export const updateUser = createAsyncThunk('user/update', async (userData, thunk
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
 
 const userSlice = createSlice({
   name: 'user',
@@ -48,6 +49,9 @@ const userSlice = createSlice({
       if (state.user) {
         state.user.avatar = action.payload;
       }
+    },
+    setUser: (state, action) => {
+      state.user = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -65,16 +69,16 @@ const userSlice = createSlice({
         state.error = action.payload;
         state.status = 'failed';
       })
-      .addCase(login.pending, (state) => {
+      .addCase(userLogin.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(userLogin.fulfilled, (state, action) => {
         state.token = action.payload.token;
         state.user = action.payload;
         state.noticesFavorites = action.payload.noticesFavorites || [];
         state.status = 'succeeded';
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(userLogin.rejected, (state, action) => {
         state.error = action.payload;
         state.status = 'failed';
       })
@@ -92,5 +96,6 @@ const userSlice = createSlice({
   }
 });
 
-export const { logout, updateUserAvatar } = userSlice.actions;
+
+export const { logout, updateUserAvatar, setUser } = userSlice.actions;
 export default userSlice.reducer;

@@ -1,6 +1,4 @@
 
-
-
 import React, { useState, useEffect } from 'react';
 import AddPetForm from '../../components/AddPetForm/AddPetForm';
 import '../../styles/PetsBlock.scss';

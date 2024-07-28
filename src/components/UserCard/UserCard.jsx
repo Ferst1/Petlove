@@ -45,12 +45,7 @@ const UserCard = () => {
   };
 
   const handleSave = (values) => {
-    setAvatar(UserLogo);
-    setUploadAvatar(values.avatar || UserUpload);
-    setUsername(values.name);
-    setEmail(values.email);
-    setPhone(values.phone);
-    dispatch(updateUser({ ...user, name: values.name, email: values.email, phone: values.phone, avatar: values.avatar }));
+    dispatch(updateUser({ ...user, name: values.name, email: values.email, phone: values.phone, avatar: uploadAvatar }));
   };
 
   const handleUploadClick = () => {

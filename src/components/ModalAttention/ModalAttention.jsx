@@ -7,7 +7,6 @@ import "../../styles/ModalAttention.scss";
 import AvtAttention from "../../../public/images/avatar-atantion.png";
 import { AuthNav } from "../../components/AuthNav/AuthNav";
 
-
 const ModalAttention = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
@@ -68,8 +67,7 @@ const ModalAttention = ({ isOpen, onClose }) => {
                 an account, you must register to access these features.
               </p>
               <div className="buttons_modal">
-             
-                 <AuthNav/>  
+                <AuthNav />
               </div>
             </div>
           </motion.div>

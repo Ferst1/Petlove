@@ -1,20 +1,19 @@
 
-
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../styles/UserBar.scss';
 import Avatar from "/images/avatar.png"; 
 import { NavLink } from 'react-router-dom';
 import ButtonAuth from '../UI/Button/ButtonAuth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/slices/userSlice';
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-const UserBar = ({ avatar, name }) => {
+const UserBar = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -23,21 +22,12 @@ const UserBar = ({ avatar, name }) => {
   return (
     <div className="user-bar">
       <NavLink to="/profile" className="user_info">
-        <img src={avatar || Avatar} alt={`${name}'s avatar`} className="user-avatar" />
-        <span className="user-name">{capitalizeFirstLetter(name)}</span>
+        <img src={user?.avatar || Avatar} alt={`${user?.name}'s avatar`} className="user-avatar" />
+        <span className="user-name">{user ? capitalizeFirstLetter(user.name) : ''}</span>
       </NavLink>
       <ButtonAuth text="Logout" to="#" className="logout" onClick={handleLogout} />
     </div>
   );
 };
-
-UserBar.propTypes = {
-  avatar: PropTypes.string,
-  name: PropTypes.string.isRequired,
-};
-
-UserBar.defaultProps = {
-  avatar: Avatar, 
-}
 
 export default UserBar;

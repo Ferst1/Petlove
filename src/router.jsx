@@ -1,6 +1,6 @@
 
 import React, { Suspense, lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -71,25 +71,31 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <PrivateRoute><ProfilePage /></PrivateRoute>
-          </Suspense>
+          <PrivateRoute>
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProfilePage />
+            </Suspense>
+          </PrivateRoute>
         ),
       },
       {
         path: "/favorites",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <PrivateRoute><FavoritePetsPage /></PrivateRoute>
-          </Suspense>
+          <PrivateRoute>
+            <Suspense fallback={<div>Loading...</div>}>
+              <FavoritePetsPage />
+            </Suspense>
+          </PrivateRoute>
         ),
       },
       {
         path: "/add_pet",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <PrivateRoute><AddPetPage /></PrivateRoute>
-          </Suspense>
+          <PrivateRoute>
+            <Suspense fallback={<div>Loading...</div>}>
+              <AddPetPage />
+            </Suspense>
+          </PrivateRoute>
         ),
       },
       {

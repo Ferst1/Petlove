@@ -28,7 +28,6 @@
     &.active {
         font-weight: bold;
     }
-
    
 }
 
@@ -39,15 +38,9 @@
     line-height: 125%;
     letter-spacing: -0.03em;
     color: #fff; 
-    background-color: $orange; 
-    border: 1px solid $orange; 
+   
 }
 
-.home-nav .nav-link:hover,
-.home-link a:hover {
-    background-color: #fff4df; 
-    border: 1px solid #fff; 
-}
 
 .special-li {
     display: none;
@@ -59,24 +52,29 @@
     padding: 15px 20px;
     background-color: $white; 
     color: $black; 
+    cursor: pointer;
 
     &:hover {
         border-color: $orange;
+        
     }
 
-    &.home-link {
+    &.home-link  {
         background-color: $orange; 
         border: 1px solid $white; 
+        &:hover {      
+            background-color: $yellowlight;
+            color: $orange;
+        }
     }
 
     &.home-link a {
         color: #fff; 
+        &:hover {
+            color: $orange;
+        }
     }
 
-    &.home-link a:hover {
-        background-color: #fff4df; 
-        border: 1px solid #fff; 
-    }
 
     @include md {
         display: none;
