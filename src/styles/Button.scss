@@ -2,6 +2,7 @@
 @import "../styles/variables.scss";
 
 .button_elem {
+  display:inline-flex;
   position: relative;
   display: flex;
   justify-content: center;
@@ -18,9 +19,22 @@
   &.button-upload {
     background-color: $yellowlight !important;
     color: $black !important;
+    font-weight: 500;
+    padding: 12px 16px;
+
 
     .button-text {
       color: $black !important;
+      font-weight: 500;
+      font-family: var(--font-family);
+font-weight: 500;
+font-size: 14px;
+line-height: 129%;
+
+    }
+    span.button-text{
+      display: flex;
+      font-size: 12px;
     }
   }
 
@@ -67,6 +81,7 @@
 
 .button_elem span {
   color: inherit;
+  
 }
 
 .clear_icon {
@@ -86,5 +101,10 @@
 .button-children, .button-text {
   display: flex;
   align-items: center;
+  font-weight: 500;
+font-size: 14px;
+line-height: 129%;
+letter-spacing: -0.02em;
+
 }
 

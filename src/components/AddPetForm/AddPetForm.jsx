@@ -14,11 +14,11 @@ import TypeSelect from '../UI/TypeSelect/TypeSelect';
 import ReactSelectStyles from '../../utils/ReactSelectStyles';
 import { addNotice } from '../../redux/slices/petsSlice';
 
-import Femali from "/public/images/female.png";
-import Male from "/public/images/male.png";
-import Multiple from "/public/images/multiple.png";
+import Femali from "/images/female.png";
+import Male from "/images/male.png";
+import Multiple from "/images/multiple.png";
 
-import AvatarPets from "/public/images/avatar-pets.png";
+import AvatarPets from "/images/avatar-pets.png";
 import UploadInput from '../UI/UploadInput/UploadInput';
 
 const AddPetForm = () => {

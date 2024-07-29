@@ -24,7 +24,7 @@ const OurFriendsPage = () => {
     fetchFriends();
   }, []);
 
-  // Функция для определения рабочего времени
+  
   const getWorkTime = (workDays) => {
     if (!workDays || workDays.length === 0) return "Day and night";
 
@@ -37,7 +37,7 @@ const OurFriendsPage = () => {
         day.to === firstDay.to
     );
 
-    // Выводим время или 'Day and night'
+  
     if (isSameTime) {
       return firstDay.isOpen ? `${firstDay.from} - ${firstDay.to}` : "Closed";
     } else {

@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadSvg from '../../../../public/images/upload-url.svg';
+import UploadSvg from '/images/upload-url.svg';
 import '../../../styles/AddPetForm.scss';
 import Button from '../Button/Button';
 
