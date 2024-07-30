@@ -1,4 +1,6 @@
 
+
+
 import React, { useState } from 'react';
 import { IoSearch, IoClose } from "react-icons/io5";
 import '../../../styles/InputSearch.scss';
@@ -7,7 +9,9 @@ const InputSearch = ({ onSearch, onClear }) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (event) => {
-    setQuery(event.target.value);
+    const newQuery = event.target.value;
+    setQuery(newQuery);
+    onSearch(newQuery);
   };
 
   const handleSearch = (event) => {

@@ -1,10 +1,13 @@
+
+
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   category: '',
   gender: '',
   type: '',
-  location: '',
+  location: ''
 };
 
 const filtersSlice = createSlice({
@@ -22,22 +25,9 @@ const filtersSlice = createSlice({
     },
     setLocationFilter(state, action) {
       state.location = action.payload;
-    },
-    clearFilters(state) {
-      state.category = '';
-      state.gender = '';
-      state.type = '';
-      state.location = '';
     }
   }
 });
 
-export const {
-  setCategoryFilter,
-  setGenderFilter,
-  setTypeFilter,
-  setLocationFilter,
-  clearFilters,
-} = filtersSlice.actions;
-
+export const { setCategoryFilter, setGenderFilter, setTypeFilter, setLocationFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;

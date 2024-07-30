@@ -6,7 +6,7 @@ import { setSortBy } from '../../redux/slices/sortSlice';
 import CategorySelect from '../UI/CategorySelect/CategorySelect';
 import GenderSelect from '../UI/GenderSelect/GenderSelect';
 import TypeSelect from '../UI/TypeSelect/TypeSelect';
-import LocationInput from '../UI/LocationInput/LocationInput';
+import LocationInput from '../UI/LocationInput/LocationInput'; // Импорт по умолчанию
 import InputSearch from '../UI/InputSearch/InputSearch';
 import Button from '../UI/Button/Button';
 import '../../styles/Searchfield.scss';

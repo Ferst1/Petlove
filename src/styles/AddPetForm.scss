@@ -1,12 +1,150 @@
 
 
+// @import "../styles/variables.scss";
+// @import "../styles/breakpoints.scss";
+
+// .add-pet-form {
+//   display: flex;
+//   flex-direction: column;
+
+  
+//   .form-group {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 16px;
+
+//     input[type="text"] {
+//       border: 1px solid rgba(38, 38, 38, 0.15);
+//       border-radius: 30px;
+//       padding: 12px 16px;
+//       max-width: 432px;   
+     
+//     }
+
+//     &.full-width input[type="text"] {
+//       width: 432px;
+//       height: 52px;
+//     }
+//     &:hover {
+//       border-color:$orange;
+//     }
+//     &:active {
+//       border-color:$green;
+//     }
+
+    
+//   }
+
+//   .button-gender {
+//     display: flex;
+//     gap: 10px;
+//     margin-top: 40px;
+//     margin-bottom: 16px;
+
+
+//     img {
+//       cursor: pointer;
+//       border: 1px solid transparent;
+//       border-radius: 50%;
+//       padding: 5px;
+
+//       &:hover,
+//       &.selected {
+//         border: 1px solid rgba(38, 38, 38, 0.15);
+//       }
+//     }
+//   }
+
+//   .button-form {
+//     margin-top: 16px;
+//     display: flex;
+//     gap: 8px;
+//   }
+// }
+
+// .form-row {
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   width: 432px;
+//   height: 52px;
+//   justify-content: space-between;
+  
+
+//   .form-group{
+//     flex: 1;
+//     margin-right: 16px;
+   
+
+//     &:last-child {
+//       margin-right: 0;
+//     }
+//   }
+//   .date-airpicker-input.success {
+//     border-color: $green;
+//   }
+
+// }
+
+// .success{
+//   border-color: $green;
+// }
+
+// .react-select__control--is-focused {
+//   box-shadow: none !important;
+//   border-color: $green !important;
+// }
+
+// .button-form {
+//   margin-top: 16px;
+// }
+
+// .url-input{
+//   padding: 12px 203px 12px 12px;
+// width: 278px;
+// height: 42px;
+// }
+
+// .full-width-input {
+//   border: 1px solid rgba(38, 38, 38, 0.15);
+//   border-radius: 30px;
+//   padding: 12px 16px;
+//   width: 100%;
+//   margin-bottom: 16px;
+//   margin-right: 0;
+// }
+
+
+
+// .select-avatar-input {
+//   display: none;
+// }
+
+// .modal-content {
+//   max-width: 500px;
+//   width: 100%;
+// }
+
+
+// .date-airpicker-wrapper {
+// //   border: 1px solid rgba(38, 38, 38, 0.15);
+// // border-radius: 30px;
+
+// width: 210px;
+// height: 52px;
+// }
+
+// .css-b62m3t-container {
+//   width: 100%;
+// }
+
+
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
 .add-pet-form {
   display: flex;
   flex-direction: column;
-
   
   .form-group {
     display: flex;
@@ -18,21 +156,24 @@
       border-radius: 30px;
       padding: 12px 16px;
       max-width: 432px;   
-     
     }
 
     &.full-width input[type="text"] {
       width: 432px;
       height: 52px;
     }
+    
+    &.success input[type="text"] {
+      border-color: $green;
+    }
+    
+    &.error input[type="text"] {
+      border-color: $red;
+    }
+
     &:hover {
       border-color:$orange;
     }
-    &:active {
-      border-color:$green;
-    }
-
-    
   }
 
   .button-gender {
@@ -40,7 +181,6 @@
     gap: 10px;
     margin-top: 40px;
     margin-bottom: 16px;
-
 
     img {
       cursor: pointer;
@@ -69,19 +209,36 @@
   width: 432px;
   height: 52px;
   justify-content: space-between;
-  
 
-  .form-group {
+  .form-group{
     flex: 1;
     margin-right: 16px;
 
     &:last-child {
       margin-right: 0;
     }
+
+    &.success input {
+      border-color: $green;
+    }
+
+    &.error input {
+      border-color: $red;
+    }
   }
- }
 
+  .date-airpicker-input.success {
+    border-color: $green;
+  }
+}
 
+.success {
+  border-color: $green;
+}
+
+.error {
+  border-color: $red;
+}
 
 .react-select__control--is-focused {
   box-shadow: none !important;
@@ -92,10 +249,10 @@
   margin-top: 16px;
 }
 
-.url-input{
+.url-input {
   padding: 12px 203px 12px 12px;
-width: 278px;
-height: 42px;
+  width: 278px;
+  height: 42px;
 }
 
 .full-width-input {
@@ -104,9 +261,8 @@ height: 42px;
   padding: 12px 16px;
   width: 100%;
   margin-bottom: 16px;
+  margin-right: 0;
 }
-
-
 
 .select-avatar-input {
   display: none;
@@ -117,13 +273,9 @@ height: 42px;
   width: 100%;
 }
 
-
 .date-airpicker-wrapper {
-//   border: 1px solid rgba(38, 38, 38, 0.15);
-// border-radius: 30px;
-
-width: 210px;
-height: 52px;
+  width: 210px;
+  height: 52px;
 }
 
 .css-b62m3t-container {

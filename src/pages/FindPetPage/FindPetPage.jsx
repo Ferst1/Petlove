@@ -8,13 +8,15 @@ import Pagination from '../../components/Pagination/Pagination';
 import { fetchAllPetsByQuery, setQuery, setPage } from '../../redux/slices/searchSlice';
 import { setCategoryFilter, setGenderFilter, setTypeFilter, setLocationFilter } from '../../redux/slices/filtersSlice';
 import { filterAndSortPets } from '../../utils/filterAndSortPets';
-import { categories, genders, species } from '../../utils/constants';
+import { fetchData } from '../../redux/slices/dataSlice';
 import ModalAttention from '../../components/ModalAttention/ModalAttention';
 import Modal from '../../components/Modal/Modal';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const FindPetPage = () => {
-  const { locations } = useSelector(state => state.data);
-  const { pets, totalItems, loading, query, currentPage } = useSelector(state => state.search);
+  const { categories, genders, types, locations, loading, error } = useSelector(state => state.data);
+  const { pets, totalItems, query, currentPage } = useSelector(state => state.search);
   const { category, gender, type, location } = useSelector(state => state.filters);
   const { sortBy } = useSelector(state => state.sort);
   const { user } = useSelector(state => state.user);
@@ -25,7 +27,9 @@ const FindPetPage = () => {
   const [selectedPet, setSelectedPet] = useState(null);
 
   useEffect(() => {
+    AOS.init();
     dispatch(fetchAllPetsByQuery({ query }));
+    dispatch(fetchData()); // Загружаем все необходимые данные
   }, [dispatch, query]);
 
   const handleSearch = (searchQuery) => {
@@ -53,6 +57,7 @@ const FindPetPage = () => {
   };
 
   const handleLocationChange = (location) => {
+    console.log("Selected location: ", location);
     dispatch(setLocationFilter(location));
   };
 
@@ -69,6 +74,10 @@ const FindPetPage = () => {
   const filteredPets = filterAndSortPets(pets, query, category, gender, type, location, sortBy);
   const currentPets = filteredPets.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
+  useEffect(() => {
+    console.log("Filtered pets: ", filteredPets);
+  }, [filteredPets]);
+
   return (
     <div className='container'>
       <section className='find_yor_pets'>
@@ -77,7 +86,7 @@ const FindPetPage = () => {
           <SearchField 
             categories={categories} 
             genders={genders} 
-            types={species} 
+            types={types} 
             locations={locations} 
             onSearch={handleSearch}
             onClear={handleClearSearch}

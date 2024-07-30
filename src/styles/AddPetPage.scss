@@ -37,11 +37,14 @@
   .button-gender {
     display: flex;
     gap: 8px;
+    
+  
   }
 
   .pets-title {
     display: flex;
     gap: 8px;
+    align-items: flex-end;
   }
 
   .pets-title h2 {

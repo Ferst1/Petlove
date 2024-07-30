@@ -1,3 +1,6 @@
+
+
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -7,13 +10,13 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
   const categories = await axios.get(`${API_BASE_URL}/notices/categories`);
   const genders = await axios.get(`${API_BASE_URL}/notices/sex`);
   const types = await axios.get(`${API_BASE_URL}/notices/species`);
-  const locations = await axios.get(`${API_BASE_URL}/notices`);
+  const locations = await axios.get(`${API_BASE_URL}/cities`);
 
   return {
     categories: categories.data,
     genders: genders.data,
     types: types.data,
-    locations: locations.data.results.map(result => result.location)
+    locations: locations.data
   };
 });
 
