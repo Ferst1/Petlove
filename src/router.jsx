@@ -1,4 +1,3 @@
-
 import React, { Suspense, lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
@@ -15,95 +14,98 @@ const OurFriendsPage = lazy(() => import("./pages/OurFriendsPage/OurFriendsPage"
 const FavoritePetsPage = lazy(() => import("./pages/FavoritePetsPage/FavoritePetsPage"));
 const AddPetPage = lazy(() => import("./pages/AddPetPage/AddPetPage"));
 
-const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        index: true,
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <HomePage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/news",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <NewsPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/find_pet",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <FindPetPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/our_friends",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <OurFriendsPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/registration",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <RegistrationPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/login",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <LoginPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoute>
+const router = createBrowserRouter(
+  [
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          index: true,
+          element: (
             <Suspense fallback={<div>Loading...</div>}>
-              <ProfilePage />
+              <HomePage />
             </Suspense>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/favorites",
-        element: (
-          <PrivateRoute>
+          ),
+        },
+        {
+          path: "/news",
+          element: (
             <Suspense fallback={<div>Loading...</div>}>
-              <FavoritePetsPage />
+              <NewsPage />
             </Suspense>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/add_pet",
-        element: (
-          <PrivateRoute>
+          ),
+        },
+        {
+          path: "/find_pet",
+          element: (
             <Suspense fallback={<div>Loading...</div>}>
-              <AddPetPage />
+              <FindPetPage />
             </Suspense>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
-  },
-]);
+          ),
+        },
+        {
+          path: "/our_friends",
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <OurFriendsPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/registration",
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <RegistrationPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/login",
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <LoginPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/profile",
+          element: (
+            <PrivateRoute>
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProfilePage />
+              </Suspense>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/favorites",
+          element: (
+            <PrivateRoute>
+              <Suspense fallback={<div>Loading...</div>}>
+                <FavoritePetsPage />
+              </Suspense>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/add_pet",
+          element: (
+            <PrivateRoute>
+              <Suspense fallback={<div>Loading...</div>}>
+                <AddPetPage />
+              </Suspense>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ],
+
+);
 
 export default router;
