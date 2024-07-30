@@ -1,8 +1,25 @@
 
 
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
 
 .form-group {
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    gap: 8px; 
+    width: 432px;
+    height: 52px;
+    .button-upload {
+        background-color: $yellowlight !important;
+        color: $black !important;
+        border-radius: 30px;
+        padding: 12px 16px;
+        width: 146px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+  
 }

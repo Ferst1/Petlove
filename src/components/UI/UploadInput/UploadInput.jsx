@@ -1,6 +1,9 @@
 import React from 'react';
 import UploadSvg from '/images/upload-url.svg';
 import '../../../styles/AddPetForm.scss';
+
+import  '../../../styles/UploadInput.scss';
+
 import Button from '../Button/Button';
 
 const UploadInput = ({ handleFileChange, handleAvatarUpload }) => {

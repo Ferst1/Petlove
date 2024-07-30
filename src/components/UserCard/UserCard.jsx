@@ -14,6 +14,7 @@ import ModalEdit from '../ModalEdit/ModalEdit';
 const UserCard = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleSave = (values) => {

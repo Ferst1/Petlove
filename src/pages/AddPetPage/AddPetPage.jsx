@@ -4,8 +4,8 @@ import AddPetForm from '../../components/AddPetForm/AddPetForm';
 import '../../styles/PetsBlock.scss';
 import '../../styles/AddPetPage.scss';
 
-import AddPets from "/public/images/addmypat.jpg";
-import AddPetsTablet from "/public/images/addmypets-tablet.png";
+import AddPets from "/images/addmypat.jpg";
+import AddPetsTablet from "/images/addmypets-tablet.png";
 
 const AddPetPage = () => {
   const [currentImage, setCurrentImage] = useState(AddPets);
