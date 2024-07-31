@@ -4,7 +4,7 @@ import AddPetForm from '../../components/AddPetForm/AddPetForm';
 import '../../styles/PetsBlock.scss';
 import '../../styles/AddPetPage.scss';
 
-import AddPets from "/images/addmypat.jpg";
+import AddPets from "../../images/addmypat.jpg";
 import AddPetsTablet from "/images/addmypets-tablet.png";
 
 const AddPetPage = () => {

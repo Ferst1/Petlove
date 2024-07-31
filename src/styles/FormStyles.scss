@@ -9,16 +9,17 @@
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 592px;
-    padding: 69px 84px;
+    width: 592px;
+    height: 654px;
+    // padding: 69px 84px;
     background-color: $white;
     padding-top: 32px;   
     border-radius: 60px;
     @include md {
-        max-width: 295px;
-        padding: 20px;
-        margin: 0 auto;
-        padding: 19px 14px;
+        max-width: 704px;
+        margin: 0 auto; 
+    }
+    @include mm2 {
     }
 }
 

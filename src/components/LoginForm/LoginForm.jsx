@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { login } from "../../redux/slices/userSlice"; 
@@ -18,7 +18,7 @@ const LoginForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
       navigate("/profile");
     }
@@ -55,6 +55,9 @@ const LoginForm = () => {
               {touched.email && errors.email && (
                 <img src={xRed} alt="Clear" className="clear-icon" onClick={() => setFieldValue('email', '')} />
               )}
+              {touched.email && !errors.email && values.email && (
+                <img src={Check} alt="Check" className="check-icon" />
+              )}
               <ErrorMessage name="email" component="div" className="error-message" />
             </div>
             <div className="password-container">
@@ -72,13 +75,16 @@ const LoginForm = () => {
                 className="toggle-password-icon"
                 onClick={() => setShowPassword(!showPassword)}
               />
+              {touched.password && !errors.password && values.password && (
+                <img src={Check} alt="Check" className="check-icon" />
+              )}
               <ErrorMessage name="password" component="div" className="error-message" />
             </div>
             <button type="submit" disabled={isSubmitting} className="btnSignup">
               Log In
             </button>
             {status === "failed" && <div>{error}</div>}
-            <p className="auth-text"  >Don't have an account? <Link to="/registration" className="auth-link">Registration</Link></p>
+            <p className="auth-text">Don't have an account? <Link to="/registration" className="auth-link">Registration</Link></p>
           </Form>
         )}
       </Formik>

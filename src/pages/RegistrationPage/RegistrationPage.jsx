@@ -5,6 +5,7 @@ import "../../styles/RegistrationPage.scss";
 
 const RegistrationPage = () => {
   return (
+    <div className="container">
     <div className="section_registration">
       <section>
         <div className="section_cat">
@@ -14,6 +15,7 @@ const RegistrationPage = () => {
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 };

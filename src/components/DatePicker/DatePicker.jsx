@@ -3,7 +3,7 @@ import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import localeEn from 'air-datepicker/locale/en';
 import { useEffect, useRef } from 'react';
-import CalendarIcon from '../../../public/images/calendar.svg';
+import CalendarIcon from '../../images/svg/calendar.svg';
 import "../../styles/DatePicker.scss"
 
 const DatePicker = ({ value, onChange, name, placeholder, error, success }) => {

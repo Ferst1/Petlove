@@ -47,6 +47,8 @@ $breakpoints: (
 
 .container {
     padding: 32px;
+    margin: 0 auto;
+    height: 100%;
   
     @include sm {
       padding: 0 20px; 
