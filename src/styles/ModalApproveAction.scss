@@ -21,9 +21,7 @@
       border-radius: 5px;
       cursor: pointer;
   
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
+   
     }
   
     .cancel-btn {
@@ -35,9 +33,7 @@
       border-radius: 5px;
       cursor: pointer;
   
-      &:hover {
-        background-color: darken($secondary-color, 10%);
-      }
+    
     }
   }
   

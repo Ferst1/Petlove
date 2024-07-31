@@ -6,7 +6,7 @@ import MyNotices from '../../components/MyNotices/MyNotices';
 import '../../styles/ProfilePage.scss';
 import ButtonAuth from '../../components/UI/Button/ButtonAuth';
 import { logout } from '../../redux/slices/userSlice';
-import ModalApproveAction from '../../components/ModalApproveAction/ModalApproveAction'; // Проверка импорта
+import ModalApproveAction from '../../components/ModalApproveAction/ModalApproveAction'; 
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const ProfilePage = () => {
   };
 
   const openModal = () => {
-    console.log("Opening ModalApproveAction"); // Отладка
+    console.log("Opening ModalApproveAction"); 
     setIsModalOpen(true);
   };
 

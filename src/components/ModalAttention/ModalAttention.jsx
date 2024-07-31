@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Modal.scss";
 import "../../styles/ModalAttention.scss";
-import AvtAttention from "../../../public/images/avatar-atantion.png";
+import AvtAttention from "../../images/avatar-atantion.png";
 import { AuthNav } from "../../components/AuthNav/AuthNav";
 
 const ModalAttention = ({ isOpen, onClose }) => {
