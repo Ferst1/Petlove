@@ -1,15 +1,22 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { login } from "../../redux/slices/userSlice"; // Используем login
-import { useNavigate } from "react-router-dom";
+import { login } from "../../redux/slices/userSlice"; 
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import "../../styles/FormStyles.scss";
+import Check from '../../images/svg/check.svg';
+import xRed from '../../images/svg/x-red.svg';
+import eye from '../../images/svg/eye.svg';
+import eyeOff from '../../images/svg/eye-off.svg';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user, status, error } = useSelector((state) => state.user);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   React.useEffect(() => {
     if (user) {
@@ -34,22 +41,44 @@ const LoginForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, touched, errors, values, setFieldValue }) => (
           <Form className="form">
-            <div>
-              <label htmlFor="email">Email</label>
-              <Field id="email" type="email" name="email" className="label" autoComplete="email" />
-              <ErrorMessage name="email" component="div" />
+            <div className="email-container">
+              <Field
+                id="email"
+                type="email"
+                name="email"
+                className={`${touched.email && errors.email ? 'invalid' : touched.email ? 'valid' : ''}`}
+                autoComplete="email"
+                placeholder="Email"
+              />
+              {touched.email && errors.email && (
+                <img src={xRed} alt="Clear" className="clear-icon" onClick={() => setFieldValue('email', '')} />
+              )}
+              <ErrorMessage name="email" component="div" className="error-message" />
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <Field id="password" type="password" name="password" className="label" autoComplete="current-password" />
-              <ErrorMessage name="password" component="div" />
+            <div className="password-container">
+              <Field
+                id="password"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className={`${touched.password && errors.password ? 'invalid' : touched.password ? 'valid' : ''}`}
+                autoComplete="current-password"
+                placeholder="Password"
+              />
+              <img
+                src={showPassword ? eye : eyeOff}
+                alt="Toggle visibility"
+                className="toggle-password-icon"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+              <ErrorMessage name="password" component="div" className="error-message" />
             </div>
             <button type="submit" disabled={isSubmitting} className="btnSignup">
               Log In
             </button>
             {status === "failed" && <div>{error}</div>}
+            <p className="auth-text"  >Don't have an account? <Link to="/registration" className="auth-link">Registration</Link></p>
           </Form>
         )}
       </Formik>

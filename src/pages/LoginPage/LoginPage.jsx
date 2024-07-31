@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from "../../components/LoginForm/LoginForm";
-import ImgDog from "../../../images/dog-register.jpg";
+import ImgDog from "../../images/dog-register.jpg";
 import "../../styles/LoginPage.scss";
 
 const LoginPage = () => {

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import '../../styles/Home.scss';
-import img from '../../../images/userhomepaje.jpg';
+import img from '../../images/userhomepaje.jpg';
 
 const HomePage = () => {
   return (

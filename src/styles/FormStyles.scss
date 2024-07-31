@@ -1,3 +1,5 @@
+
+
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
@@ -59,7 +61,7 @@
     gap: 14px;
     color: rgba(38, 38, 38, 0.5);
     justify-content: center;
-    align-items: center;
+  
     @include mm {
         max-width: 295px;
     }
@@ -68,7 +70,7 @@
     }
 }
 
-.label {
+input {
     border: 1px solid rgba(38, 38, 38, 0.15);
     border-radius: 30px;
     padding: 16px 36px 16px 16px;
@@ -90,6 +92,68 @@
         border-color: rgba(243, 243, 243, 0.5);
         color: rgba(38, 38, 38, 0.5);
     }
+}
+
+.valid {
+    border-color: $green;
+}
+
+.invalid {
+    border-color: $red;
+}
+
+.error-message {
+    color: $red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.password-secure {
+    color: $green;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.03em;
+    
+   
+}
+
+.password-container {
+    position: relative;
+}
+
+.email-container {
+    position: relative;
+}
+
+.check-icon {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.clear-icon {
+    position: absolute;
+    right: 15px;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.toggle-password-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .btnSignup {
@@ -119,3 +183,30 @@
         height: 42px;
     }
 }
+
+
+auth-text {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: -0.03em;
+    color: rgba(38, 38, 38, 0.5);
+    @include sm {
+       font-size: 12px;
+        line-height: 1.17;      
+        
+    }
+}
+
+.auth-link {
+    color: $orange;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+   text-decoration: underline;
+   margin-left: 5px;
+   cursor: pointer;
+    @include sm {                                   }}
