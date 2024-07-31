@@ -1,6 +1,4 @@
 
-
-
 import React, { useState } from 'react';
 import { IoSearch, IoClose } from "react-icons/io5";
 import '../../../styles/InputSearch.scss';

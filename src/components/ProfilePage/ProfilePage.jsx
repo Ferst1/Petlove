@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import UserCard from '../../components/UserCard/UserCard';
@@ -7,11 +6,13 @@ import MyNotices from '../../components/MyNotices/MyNotices';
 import '../../styles/ProfilePage.scss';
 import ButtonAuth from '../../components/UI/Button/ButtonAuth';
 import { logout } from '../../redux/slices/userSlice';
+import ModalApproveAction from '../../components/ModalApproveAction/ModalApproveAction'; // Проверка импорта
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -24,13 +25,27 @@ const ProfilePage = () => {
     navigate('/login');
   };
 
+  const openModal = () => {
+    console.log("Opening ModalApproveAction"); // Отладка
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="profile-page">
       <div className="user-card">
         <UserCard />
-        <ButtonAuth text="Logout" to="#" className="logout-btn" onClick={handleLogout} />
+        <ButtonAuth text="Logout" to="#" className="logout-btn" onClick={openModal} />
       </div>
       <MyNotices />
+      <ModalApproveAction
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onConfirm={handleLogout}
+      />
     </div>
   );
 };

@@ -1,8 +1,6 @@
 @import "../styles/variables.scss";
 @import "../styles/breakpoints.scss";
 
-
-
 .section_registration {
     display: flex-wrap;
     justify-content: space-between;
@@ -28,9 +26,4 @@
         object-fit: cover;
         margin: 0 auto;
     }
-}
-.img_registration {
-}
-.section_form {
-    
 }

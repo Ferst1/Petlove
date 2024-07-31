@@ -5,7 +5,7 @@
 .find_pets_card_wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; 
   
 }
 
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     justify-content: center;
- 
+    gap: 32px;
     
 }
 
@@ -24,17 +24,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 32px;
 
 }
 
 .pets_item {
+  
     max-width: 363px;
     margin-bottom: 32px;
     padding: 24px;
     border-radius: 60px;
     background-color:$white;
     border-radius: 60px;
-    gap: 32px;
     align-items: center;
     justify-content: space-between;
    
@@ -65,14 +66,10 @@
 }
 
 
-   
-
 .favorite_button{
     position: relative;
     justify-content: space-between;
     align-items: center;
     padding-top: 32px;
-  
-    
 
 }

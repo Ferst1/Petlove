@@ -7,7 +7,9 @@
   font-family: "Manrope", sans-serif;
 }
 
-
+[data-aos] {
+  overflow: visible !important;
+}
 
 body{
   background: #f9f9f9;

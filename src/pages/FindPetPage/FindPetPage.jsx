@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FindPetsCard from '../../components/FindPetsCard/FindPetsCard';
@@ -128,4 +127,3 @@ const FindPetPage = () => {
 };
 
 export default FindPetPage;
-
