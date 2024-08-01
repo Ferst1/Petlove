@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ferst1.github.io/Petlove",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

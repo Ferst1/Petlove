@@ -2,6 +2,9 @@
 import { NavLink } from 'react-router-dom';
 import '../../styles/MobileMenu.scss';
 import X from '/images/x.svg';
+import '../../styles/ButtonAuth.scss'
+
+import ButtonAuth from '../UI/Button/ButtonAuth';
 
 const MobileMenu = ({ isMenuOpen, handleToggleMenu }) => {
   return (
@@ -17,7 +20,13 @@ const MobileMenu = ({ isMenuOpen, handleToggleMenu }) => {
       <NavLink to="/our_friends" onClick={handleToggleMenu}>
         Our friends
       </NavLink>
+
+      <div className="auth-bar">
+  <ButtonAuth/> 
+      
+</div>
     </div>
+
   );
 };
 

@@ -106,6 +106,7 @@ const router = createBrowserRouter(
     },
   ],
 
+  { basename: "/Petlove" } 
 );
 
 export default router;
