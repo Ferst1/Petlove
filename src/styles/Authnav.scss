@@ -51,7 +51,7 @@
   
   &:hover {
     background-color: $yellowlight;
-    color: $orange;
+    color: $orange !important;
   }
 
   @include lg {

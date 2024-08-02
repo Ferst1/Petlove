@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../../styles/Modal.scss";
 import Button from '../UI/Button/Button';
 import UploadInput from '../UI/UploadInput/UploadInput';
-import UserUpload from "/images/user-profile/user-upload.png";
+import UserUpload from "../../images/user-profile/user-upload.png";
 
 const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
   const [avatar, setAvatar] = useState(user?.avatar || UserUpload);
