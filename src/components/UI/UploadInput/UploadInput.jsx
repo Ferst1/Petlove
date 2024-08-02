@@ -12,7 +12,7 @@ const UploadInput = ({ handleFileChange, handleAvatarUpload, register }) => {
         type="text"
         placeholder='Enter URL'
         className="url-input"
-        {...register('imgUrl')}  // using register from react-hook-form
+        {...register('avatar')} 
       />
       <Button 
         type="button"

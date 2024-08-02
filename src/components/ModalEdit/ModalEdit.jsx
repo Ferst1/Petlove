@@ -1,5 +1,6 @@
 
 import React, { useLayoutEffect, useState, useRef } from "react";
+import { useForm } from "react-hook-form";
 import { IoCloseSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../styles/Modal.scss";
@@ -8,10 +9,16 @@ import UploadInput from '../UI/UploadInput/UploadInput';
 import UserUpload from "../../images/user-profile/user-upload.png";
 
 const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
+  const { register, handleSubmit, setValue } = useForm({
+    defaultValues: {
+      avatar: user?.avatar || UserUpload,
+      name: user?.name || '',
+      email: user?.email || '',
+      phone: user?.phone || ''
+    }
+  });
+
   const [avatar, setAvatar] = useState(user?.avatar || UserUpload);
-  const [username, setUsername] = useState(user?.name || '');
-  const [email, setEmail] = useState(user?.email || '');
-  const [phone, setPhone] = useState(user?.phone || '');
   const fileInputRef = useRef(null);
 
   const handleEscapeKey = (e) => {
@@ -32,6 +39,7 @@ const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
       const reader = new FileReader();
       reader.onload = () => {
         setAvatar(reader.result);
+        setValue('avatar', reader.result); 
       };
       reader.readAsDataURL(file);
     }
@@ -41,19 +49,8 @@ const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
     fileInputRef.current.click();
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name === 'name') {
-      setUsername(value);
-    } else if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'phone') {
-      setPhone(value);
-    }
-  };
-
-  const handleSubmit = () => {
-    onSave({ avatar, name: username, email, phone });
+  const onSubmit = (data) => {
+    onSave({ ...data, avatar });
     onClose();
   };
 
@@ -84,9 +81,9 @@ const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
                 <IoCloseSharp size={"24px"} />
               </button>
               <h3>Edit information</h3>
-              <img src={avatar} alt={`${username}'s avatar`} className="user-avatar" />
+              <img src={avatar} alt={`${user.name}'s avatar`} className="user-avatar" />
               <div className="img-upload">
-                <UploadInput handleFileChange={handleFileChange} handleAvatarUpload={handleAvatarUpload} />
+                <UploadInput register={register} handleFileChange={handleFileChange} handleAvatarUpload={handleAvatarUpload} />
                 <input
                   type="file"
                   name="file"
@@ -96,13 +93,15 @@ const ModalEdit = ({ isOpen, onClose, user, onSave }) => {
                   style={{ display: 'none' }}
                 />
               </div>
-              <input type='text' name='name' value={username} onChange={handleInputChange} placeholder='Name' className="full-width-input" />
-              <input type='email' name='email' value={email} onChange={handleInputChange} placeholder='E-mail' className="full-width-input" />
-              <input type='tel' name='phone' value={phone} onChange={handleInputChange} placeholder='+380 ' className="full-width-input" />
-              <div className="buttons_modal">
-                <Button text="Save" onClick={handleSubmit} />
-                <Button text="Cancel" onClick={onClose} />
-              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <input type='text' name='name' {...register('name')} placeholder='Name' className="full-width-input" />
+                <input type='email' name='email' {...register('email')} placeholder='E-mail' className="full-width-input" />
+                <input type='tel' name='phone' {...register('phone')} placeholder='+380 ' className="full-width-input" />
+                <div className="buttons_modal">
+                  <Button text="Save" type="submit" />
+                  <Button text="Cancel" onClick={onClose} />
+                </div>
+              </form>
             </div>
           </motion.div>
         </div>
