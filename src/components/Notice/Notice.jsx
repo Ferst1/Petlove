@@ -1,4 +1,4 @@
-// components/Notice/Notice.jsx
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFavoriteNotice } from '../../redux/slices/userSlice';

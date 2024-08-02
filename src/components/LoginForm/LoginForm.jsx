@@ -34,8 +34,12 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="form_container">
+    < div className="form_container">
+      <div className="auth-title">
       <h2>Log In</h2>
+      <p>Welcome! Please enter your credentials to login to the platform</p>
+      </div>
+    
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={validationSchema}

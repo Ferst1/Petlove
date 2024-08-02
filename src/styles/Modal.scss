@@ -136,6 +136,7 @@ color: rgba(38, 38, 38, 0.5);
     display: flex;
     gap: 10px;
     
+    
   }
 
 
@@ -161,7 +162,7 @@ color: rgba(38, 38, 38, 0.5);
   }
   .info_item p{
     font-size: 12px;
-    line-height: 117%;
+    line-height: 1.17;
     letter-spacing: -0.02em;
     color: $black;
   }

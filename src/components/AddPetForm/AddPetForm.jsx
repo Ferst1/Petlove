@@ -12,7 +12,7 @@ import Button from '../UI/Button/Button';
 import DatePicker from '../DatePicker/DatePicker';
 import TypeSelect from '../UI/TypeSelect/TypeSelect';
 import ReactSelectStyles from '../../utils/ReactSelectStyles';
-import { addNotice } from '../../redux/slices/petsSlice';
+import { addPetToFirestore } from '../../redux/slices/petsSlice';
 
 import Femali from "/images/female.png";
 import Male from "/images/male.png";
@@ -32,7 +32,7 @@ const AddPetForm = () => {
     title: Yup.string().required('Title is required'),
     name: Yup.string().required('Name is required'),
     imgUrl: Yup.string()
-      .matches(/^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/, 'Invalid URL format')
+      .url('Invalid URL format')
       .required('Image URL is required'),
     species: Yup.string().required('Species is required'),
     dateOfBirth: Yup.string()
@@ -53,13 +53,13 @@ const AddPetForm = () => {
   const onSubmit = async (data) => {
     console.log("Submitting form with data:", data);
     try {
-      await dispatch(addNotice({ ...data, sex: selectedGender, token })).unwrap();
+      await dispatch(addPetToFirestore({ ...data, sex: selectedGender })).unwrap();
       toast.success('Pet added successfully!', {
         onClose: () => navigate('/profile'),
       });
     } catch (error) {
       console.error("Error adding pet:", error);
-      toast.error(`Error adding pet: ${error.message}`);
+      toast.error(`Error adding pet: ${error}`);
     }
   };
 
@@ -70,7 +70,10 @@ const AddPetForm = () => {
 
   const handleAvatarUpload = () => {
     const imgUrl = getValues('imgUrl');
-    if (imgUrl) {
+    const validImageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'];
+    const isValidUrl = validImageExtensions.some(ext => imgUrl.endsWith(ext));
+    
+    if (imgUrl && isValidUrl) {
       setAvatarUrl(imgUrl);
     } else {
       alert('Please enter a valid URL.');

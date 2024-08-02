@@ -10,24 +10,33 @@
   
   
     .confirm-btn {
-
+      color: $black;
       padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
+      background-color: rgba(38, 38, 38, 0.05);
       cursor: pointer;
-  
+  &:hover , &:active {
+    opacity: 0.8;
+    background:$orange;
+    color: $white;
+  }
    
     }
   
     .cancel-btn {
 
       color: $black;
-      background-color: rgba(38, 38, 38, 0.05)!important;
+      background-color: rgba(38, 38, 38, 0.05);
       padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
-  
+      &:hover , &:active {
+        opacity: 0.8;
+        background:$orange;
+        color: $white;
+      }
     
     }
   }

@@ -1,0 +1,114 @@
+
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.firestore-pets_item {
+  display: flex;
+  align-items: flex-start;
+  background-color: $white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  @include md {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.img-wrapper {
+  margin-right: 20px;
+
+  @include md {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  img {
+    border-radius: 50%;
+    padding: 10px;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+
+  .title-crach {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    h3 {
+      font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 129%;
+      color: #2b2b2a;
+      margin: 0;
+
+      @include md {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .favorite_button {
+    
+
+    .favorit {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .firestore-pets-data {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    .data-item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .label {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 140%;
+        letter-spacing: -0.02em;
+        color: rgba(38, 38, 38, 0.5);
+      }
+
+      .value {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 117%;
+        letter-spacing: -0.02em;
+        color: #262626;
+      }
+    }
+  }
+
+  > div > p {
+    margin: 10px 0 0;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #262626;
+  }
+}

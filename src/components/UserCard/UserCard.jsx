@@ -10,6 +10,7 @@ import UserEdit from "../../images/user-profile/edit.png";
 import Button from '../UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import ModalEdit from '../ModalEdit/ModalEdit';
+import PetsBlock from '../PetsBlock/PetsBlock';
 
 const UserCard = () => {
   const user = useSelector((state) => state.user.user);
@@ -53,6 +54,7 @@ const UserCard = () => {
       <div className='my-pets'>
         <h3>My pets</h3>
         <Button text={"Add pet +"} className="button-add" onClick={() => navigate('/add_pet')} />
+        <PetsBlock />
       </div>
       <ModalEdit isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} user={user} onSave={handleSave} />
     </div>

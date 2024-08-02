@@ -1,10 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from "../../components/LoginForm/LoginForm";
 import ImgDog from "../../images/dog-register.jpg";
 import ImgDogTablet from "../../images/login-tablet.png";
-import "../../styles/LoginPage.scss";
+import "../../styles/PageStyles.scss";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -13,14 +14,16 @@ const LoginPage = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 425) {
+        setImgSrc(ImgDog);
+      } else if (window.innerWidth <= 768) {
         setImgSrc(ImgDogTablet);
       } else {
         setImgSrc(ImgDog);
       }
     };
 
-    handleResize(); 
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -34,11 +37,9 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <div className="login-page">
-        <div className="login-img-page">
-          <img className="login-img" src={imgSrc} alt="register-page" />
-        </div>
-        <div className="login-form-page">
+      <div className="page-container">
+        <img className="page-image" src={imgSrc} alt="login-page" />
+        <div className="form-wrapper">
           <LoginForm />
         </div>
       </div>

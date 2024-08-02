@@ -1,0 +1,45 @@
+@import "../styles/variables.scss";
+@import "../styles/breakpoints.scss";
+
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+
+  @include md {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.page-image {
+  border-radius: 60px;
+  max-width: 50%;
+  height: 654px;
+  object-fit: cover;
+
+  @include md {
+    max-width: 100%;
+    height: auto;
+  }
+  @include mm2 {
+    max-width: 100%;
+    height: 280px;
+  }
+}
+
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: 50%;
+  
+  @include md {
+    max-width: 100%;
+  }
+}

@@ -40,7 +40,10 @@ const RegistrationForm = () => {
 
   return (
     <div className="form_container">
-      <h2>Sign Up</h2>
+       <div className="auth-title">
+      <h2>Registration</h2>
+      <p>Thank you for your interest in our platform. </p>
+      </div>
       <Formik
         initialValues={{ name: "", email: "", password: "", confirmPassword: "" }}
         validationSchema={validationSchema}
