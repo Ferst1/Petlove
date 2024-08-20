@@ -10,13 +10,14 @@
   <body></body>
 </html> -->
 
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <script type="text/javascript">
-      var path = window.location.pathname;
+    
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      
       window.location.replace("/Petlove" + path);
     </script>
   </head>
@@ -24,3 +25,4 @@
     <p>Redirecting...</p>
   </body>
 </html>
+
